@@ -16,11 +16,11 @@ const App = () => {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <AuthProvider>
-            <Router>
-              <Routes>
-                <Route path="/" exact element={<Register />} />
-              </Routes>
-            </Router>
+          <Router>
+            <Routes>
+              <Route path="/" exact element={<Register />} />
+            </Routes>
+          </Router>
         </AuthProvider>
       </ThemeProvider>
     </StyledEngineProvider>
