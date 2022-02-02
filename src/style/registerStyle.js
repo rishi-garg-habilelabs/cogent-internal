@@ -4,8 +4,14 @@ const style = makeStyles(() => ({
   root: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingBlock: '2%',
   },
+  title:{
+      textAlign:'center',
+      fontWeight:800,
+      color:'black',
+      fontSize:22,
+      paddingBlock:20
+  }
 
 }));
 
