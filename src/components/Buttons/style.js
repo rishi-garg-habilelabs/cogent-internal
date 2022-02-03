@@ -1,20 +1,17 @@
 const buttonStyle = (theme) => ({
     primaryButton: {
         '&.MuiButton-root': {
-            textTransform:'none',
-            borderRadius:50,
+            textTransform:'uppercase !important',
             color: '#f3f8fe !important',
-            border: '1px solid #d300ff !important',
             boxShadow: '0 4px 4px -2px hsl(0deg 0% 65% / 25%)',
             boxSizing: 'border-box',
             height: '45px',
             marginLeft: '15px',
             minWidth: '90px',
-            background: '#d300ff',
-            textTransform: 'capitalize',
+            background: '#FF6D00',
             '&:hover': {
-                color: '#d300ff !important',
-                background: '#fff',
+                color: '#FF6D00 !important',
+                background: 'hsl(240deg 8% 93%)',
             },
         },
         '&:disabled':{
@@ -23,16 +20,14 @@ const buttonStyle = (theme) => ({
     },
     secButton: {
       '&.MuiButton-root': {
-         textTransform:'none',
+         textTransform:'uppercase',
           background: 'white',
-          borderRadius:50,
           boxShadow: '0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%) !important',
           boxSizing: 'border-box',
           height: '45px',
           marginLeft: '15px',
           minWidth: '90px',
-          textTransform: 'capitalize',
-          color: '#d300ff !important',
+          color: '#FF6D00 !important',
           '&:hover': {
               background: '#d300ff',
               color: '#fff !important',
