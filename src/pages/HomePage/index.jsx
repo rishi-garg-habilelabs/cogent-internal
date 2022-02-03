@@ -66,10 +66,11 @@ export default function HomePage() {
           height: 300,
         }}
       >
+        
         <Card className={classes.cardRight} sx={{ maxWidth: 400 }}>
           <CardContent>
-            <Box display="flex" style={{ marginTop: 5 }}>
-              <Typography sx={{ fontSize: 18, fontWeight: 500 }}>
+            <Box style={{ marginTop: 5 }}>
+              <Typography sx={{ fontSize: 18, fontWeight: 500}}>
                 {t("NEW_REGISTER")}
               </Typography>
             </Box>
