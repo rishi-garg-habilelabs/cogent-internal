@@ -1,10 +1,10 @@
 import React from 'react'
 import Button from '@mui/material/Button';
-import useStyles from '../../custom-hooks/useStyles'
+import useStyles from '../../../custom-hooks/useStyles'
 import styles from './style'
-import BTN from '../../constant/buttonTypes'
+import BTN from '../../../constant/buttonTypes'
 
-export default function CButton (props) {
+export default function ButtonAtom (props) {
   const { onClick, name, disabled,btntype,icon,type,className,startIcon} = props
   const classes = useStyles(styles)()
 

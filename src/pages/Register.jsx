@@ -4,7 +4,7 @@ import { auth } from "../store/services/auth";
 import Button from "../components/Buttons/button";
 import { useState } from "react";
 import { Grid } from "@mui/material";
-import BTN from "../constant/buttonTypes";
+import Buttons from "../../constant";
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const classes = style();
@@ -44,7 +44,7 @@ const Register = () => {
         justifyContent="flex-end"
       >
         <Grid item>
-          <Button name="Save" btntype={BTN.PRIMARY} onClick="" />
+          <Button name="Save" btntype={Buttons.PRIMARY} onClick="" />
         </Grid>
       </Grid>
     </Grid>
