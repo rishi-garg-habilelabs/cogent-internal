@@ -7,7 +7,9 @@ import {
   createTheme,
 } from "@mui/material/styles";
 import AuthProvider from "./contexts/AuthProvider";
-import Register from "./pages/register/register";
+import Register from "./pages/Register";
+// import Home from "./pages/Homepage";
+
 
 const theme = createTheme();
 
@@ -19,6 +21,7 @@ const App = () => {
           <Router>
             <Routes>
               <Route path="/" exact element={<Register />} />
+              {/* <Route path="/register" exact element={<Register />} /> */}
             </Routes>
           </Router>
         </AuthProvider>
