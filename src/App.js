@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import _ from 'lodash';
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
@@ -9,9 +10,13 @@ import {
 import AuthProvider from "./contexts/AuthProvider";
 import Register from "./pages/Register";
 import Home from "./pages/HomePage";
+import { registerFormFields } from '../src/utils/constant';
 
 
 const theme = createTheme();
+
+const getFormFields = (r) => _.cloneDeep(registerFormFields).filter((f) => f.role.includes(r));
+// const type = getQueryParams('type');
 
 const App = () => {
   return (
@@ -20,8 +25,8 @@ const App = () => {
         <AuthProvider>
           <Router>
             <Routes>
-              <Route path="/" exact element={<Home />} />
-              <Route path="/register" exact element={<Register />} />
+              <Route path="/" exact element={<Home  />} />
+              <Route path="/register" exact element={<Register  fields={getFormFields('admin')}  />} />
             </Routes>
           </Router>
         </AuthProvider>
