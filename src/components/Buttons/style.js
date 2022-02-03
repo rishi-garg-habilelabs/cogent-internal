@@ -29,7 +29,7 @@ const buttonStyle = (theme) => ({
           minWidth: '90px',
           color: '#FF6D00 !important',
           '&:hover': {
-              background: '#d300ff',
+              background: '#FF6D00',
               color: '#fff !important',
           },
       },
