@@ -1,13 +1,15 @@
-import request from "../../utils/request";
+import request from '../../utils/request';
+import constant from '../../constant/config';
+import {httpservice}from '../../react-config/httpservice'
 
-// Sign in
-const signIn = (payload) => request.post("signin", payload);
 
-// Registration
-const register = (payload) => request.post("users", payload);
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
-  signIn,
-  register,
-};
+export function getData() {
+	return httpservice()
+		.get('/')
+		.then(function (response) {
+			return response.data;
+		})
+		.catch((error) => {
+			return error.response;
+		});
+}

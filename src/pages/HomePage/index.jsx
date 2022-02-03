@@ -4,16 +4,26 @@ import { useTranslation } from "react-i18next";
 import CardContent from "@mui/material/CardContent";
 import { Box, Typography } from "@mui/material";
 import Button from "../../components/atoms/button";
-import BTN from "../../constant/buttonTypes";
+import {Buttons}  from "../../constant";
 import { useNavigate } from "react-router-dom";
-
+import { getData } from "../../store/services/auth";
 import useStyles from "../../custom-hooks/useStyles";
 import styles from "./style";
+import { httpservice } from "../../react-config/httpservice";
 
-export default function HomePage() {
+
+const HomePage=() =>{
   const { t } = useTranslation();
   const classes = useStyles(styles)();
   const navigate = useNavigate();
+  const getDataApi = async ()=>{
+    // const payload = {};
+   const response =  await getData()
+   console.log('response',response)
+  }
+  React.useEffect(()=>{
+    getDataApi()
+  },[])
   return (
     <Box display="flex" className={classes.wrapper}>
       <Box
@@ -41,7 +51,7 @@ export default function HomePage() {
               </Typography>
             </Box>
             <Box className={classes.textMargin}>
-              <Button btntype={BTN.PRIMARY} name={t("SIGN_IN")} />
+              <Button btntype={Buttons.PRIMARY} name={t("SIGN_IN")} />
             </Box>
             <Box  className={classes.textMargin}>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
@@ -50,7 +60,7 @@ export default function HomePage() {
             </Box>
             <Box className={classes.textMargin}>
               <Box  className={classes.textMargin}>
-                <Button btntype={BTN.SECONDARY} name="RECOVER ACCOUNT" />
+                <Button btntype={Buttons.SECONDARY} name="RECOVER ACCOUNT" />
               </Box>
               <Box className={classes.textMargin}>
                 <Typography variant="body2">{t("RECOVER_ACC")}</Typography>
@@ -81,7 +91,7 @@ export default function HomePage() {
             </Box>
             <Box className={classes.textMargin}>
               <Button
-                btntype={BTN.SECONDARY}
+                btntype={Buttons.SECONDARY}
                 name={t("REGISTER_NOW")}
                 onClick={() => navigate("/register")}
               />
@@ -90,7 +100,7 @@ export default function HomePage() {
               <Typography>{t("RETURN_STUDENT")}</Typography>
             </Box>
             <Box className={classes.textMargin}>
-              <Button btntype={BTN.SECONDARY} name={t("WATCH_VIDEO")} />
+              <Button btntype={Buttons.SECONDARY} name={t("WATCH_VIDEO")} />
             </Box>
             <Box  className={classes.textMargin}>
               <Typography variant="body2">{t("JOIN_BACK")}</Typography>
@@ -101,3 +111,5 @@ export default function HomePage() {
     </Box>
   );
 }
+
+export default HomePage
