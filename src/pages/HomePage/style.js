@@ -18,6 +18,7 @@ const homePageStyle = (theme) => ({
   },
   cardRight: {
     borderRadius: 0,
+    marginLeft:10,
     background: "#FF6D00",
     color: "white",
     textAlign: "center",
