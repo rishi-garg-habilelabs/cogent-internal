@@ -8,7 +8,7 @@ import {
 } from "@mui/material/styles";
 import AuthProvider from "./contexts/AuthProvider";
 import Register from "./pages/Register";
-// import Home from "./pages/Homepage";
+import Home from "./pages/HomePage";
 
 
 const theme = createTheme();
@@ -20,8 +20,8 @@ const App = () => {
         <AuthProvider>
           <Router>
             <Routes>
-              <Route path="/" exact element={<Register />} />
-              {/* <Route path="/register" exact element={<Register />} /> */}
+              <Route path="/" exact element={<Home />} />
+              <Route path="/register" exact element={<Register />} />
             </Routes>
           </Router>
         </AuthProvider>

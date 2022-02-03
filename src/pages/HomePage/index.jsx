@@ -5,18 +5,20 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
-import Button from "../components/Buttons/button";
-import BTN from "../constant/buttonTypes";
+import Button from "../../components/atoms/button";
+import BTN from "../../constant/buttonTypes";
 import { useNavigate } from "react-router-dom";
 
-import useStyles from '../custom-hooks/useStyles'
-import styles from '../style/homePageStyle'
+import useStyles from '../../custom-hooks/useStyles'
+import styles from './style'
 
 export default function HomePage() {
     const classes = useStyles(styles)()
     const navigate =useNavigate()
   return (
-    <Grid container justifyContent="center">
+        
+    <Grid container justifyContent="center" className={classes.wrapper}> 
+    <Grid container justifyContent="center" className={classes.mainContainer}> 
       <Grid item xs={6}>
         <Card  className={classes.cardLeft} sx={{ maxWidth: 400 }}>
           <CardContent>
@@ -50,7 +52,7 @@ export default function HomePage() {
         </Card>
       </Grid>
       <Grid item xs={6}>
-        <Card sx={{ maxWidth: 400 }}>
+        <Card  className={classes.cardRight} sx={{ maxWidth: 400 }}>
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}
@@ -67,7 +69,7 @@ export default function HomePage() {
             >
               Not yet registered to the portal (First Time Parents)?
             </Typography>
-            <Button btntype={BTN.PRIMARY} name="REGISTER NOW"  onClick={()=>navigate('/register')}/>
+            <Button btntype={BTN.SECONDARY} name="REGISTER NOW"  onClick={()=>navigate('/register')}/>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               Are you a Returning Student?
             </Typography>
@@ -82,6 +84,7 @@ export default function HomePage() {
           <CardActions></CardActions>
         </Card>
       </Grid>
+    </Grid>
     </Grid>
   );
 }

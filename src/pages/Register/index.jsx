@@ -1,10 +1,10 @@
-import style from "../style/registerStyle";
-import TextInput from "../components/textfield/textfield";
-import { auth } from "../store/services/auth";
-import Button from "../components/Buttons/button";
+import style from "./style";
+import TextInput from "../../components/atoms/textfield";
+import { auth } from "../../store/services/auth";
+import Button from "../../components/atoms/button";
 import { useState } from "react";
 import { Grid } from "@mui/material";
-import Buttons from "../../constant";
+import {Buttons} from "../../constant";
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const classes = style();
