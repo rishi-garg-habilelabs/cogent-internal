@@ -1,7 +1,6 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+import { useTranslation } from "react-i18next";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
@@ -13,6 +12,7 @@ import useStyles from "../../custom-hooks/useStyles";
 import styles from "./style";
 
 export default function HomePage() {
+  const { t } = useTranslation();
   const classes = useStyles(styles)();
   const navigate = useNavigate();
   return (
@@ -23,7 +23,7 @@ export default function HomePage() {
             <CardContent>
               <Grid item style={{ marginTop: 5 }}>
                 <Typography sx={{ fontSize: 18, fontWeight: 500 }}>
-                  Returning Parents/ Teacher/ Coordinators
+                  {t("RETURN")}
                 </Typography>
               </Grid>
               <Grid item className={classes.textMargin}>
@@ -33,19 +33,15 @@ export default function HomePage() {
                   gutterBottom
                   component="div"
                 >
-                  If you have your Manabadi Google Platform (Classroom) User ID
-                  and Password, please sign in.
+                  {t("PLEASE_SIGN_IN")}
                 </Typography>
               </Grid>
               <Grid item className={classes.textMargin}>
-                <Button
-                  btntype={BTN.PRIMARY}
-                  name="SIGN IN TO MANABADI PORTAL"
-                />
+                <Button btntype={BTN.PRIMARY} name={t("SIGN_IN")} />
               </Grid>
               <Grid item className={classes.textMargin}>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  Problem signing in to your Account.
+                  {t("PROBLIEM_IN_SIGN_IN")}
                 </Typography>
               </Grid>
               <Grid item className={classes.textMargin}>
@@ -53,10 +49,7 @@ export default function HomePage() {
                   <Button btntype={BTN.SECONDARY} name="RECOVER ACCOUNT" />
                 </Grid>
                 <Grid className={classes.textMargin}>
-                  <Typography variant="body2">
-                    If you don't have/remember your Manabadi credentials please
-                    use Recovery button to recover it.
-                  </Typography>
+                  <Typography variant="body2">{t("RECOVER_ACC")}</Typography>
                 </Grid>
               </Grid>
             </CardContent>
@@ -67,31 +60,30 @@ export default function HomePage() {
             <CardContent>
               <Grid style={{ marginTop: 5 }}>
                 <Typography sx={{ fontSize: 18, fontWeight: 500 }}>
-                  New Registrations
+                  {t("NEW_REGISTER")}
                 </Typography>
               </Grid>
               <Grid item className={classes.textMargin}>
                 <Typography sx={{ fontSize: 14 }}>
-                  Not yet registered to the portal (First Time Parents)?
+                  {t("FIRST_TIME_PARENT")}
                 </Typography>
               </Grid>
               <Grid item className={classes.textMargin}>
                 <Button
                   btntype={BTN.SECONDARY}
-                  name="REGISTER NOW"
+                  name={t("REGISTER_NOW")}
                   onClick={() => navigate("/register")}
                 />
               </Grid>
               <Grid item className={classes.textMargin}>
-                <Typography>Are you a Returning Student?</Typography>
+                <Typography>{t("RETURN_STUDENT")}</Typography>
               </Grid>
               <Grid item className={classes.textMargin}>
-                <Button btntype={BTN.SECONDARY} name="WATCH VIDEO" />
+                <Button btntype={BTN.SECONDARY} name={t("WATCH_VIDEO")} />
               </Grid>
               <Grid item className={classes.textMargin}>
                 <Typography variant="body2">
-                  All the students who have been assorted to Manabadi and are
-                  joining back will be considered as returning students.
+                 {t("JOIN_BACK")}
                 </Typography>
               </Grid>
             </CardContent>
