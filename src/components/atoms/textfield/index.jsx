@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import { useTranslation } from 'react-i18next';
 import style from './style';
 
-function TextInput({
+function TextFieldAtom({
   label, name, value, onChange, InputProps, multiline, rows, onBlur,
   customFormControlCss, type, required, variant, placeholder, error,
   errorText, disable, onKeyUp, title,
@@ -37,7 +37,7 @@ function TextInput({
   );
 }
 
-TextInput.propTypes = {
+TextFieldAtom.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
@@ -58,7 +58,7 @@ TextInput.propTypes = {
   onBlur: PropTypes.func,
 };
 
-TextInput.defaultProps = {
+TextFieldAtom.defaultProps = {
   label: '',
   InputProps: {},
   customFormControlCss: {},
@@ -76,4 +76,4 @@ TextInput.defaultProps = {
   onBlur: () => {},
 };
 
-export default TextInput;
+export default TextFieldAtom;
