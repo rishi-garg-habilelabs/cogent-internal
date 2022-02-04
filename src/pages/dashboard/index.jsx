@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import { useTranslation } from "react-i18next";
-import CardContent from "@mui/material/CardContent";
-
-import Button from "../../components/atoms/button";
-import { Buttons } from "../../constant";
 import { useNavigate } from "react-router-dom";
 import { getData } from "../../store/services/auth";
 import useStyles from "../../custom-hooks/useStyles";
 import styles from "./style";
 import useScreenWidth from "../../custom-hooks/useScreenWidth";
-import Header from "../../components/molecules/header";
-
-import { makeStyles } from '@mui/styles';
 import { Card, Typography, Grid } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import AcUnitIcon from '@mui/icons-material/AcUnit';

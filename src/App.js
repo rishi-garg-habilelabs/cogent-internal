@@ -17,6 +17,7 @@ import Home from "./pages/home";
 import { registerFormFields } from "../src/utils/constant";
 import Sidebar from "./components/molecules/sidebar";
 import Header from "./components/molecules/header";
+
 const theme = createTheme();
 
 const getFormFields = (r) =>

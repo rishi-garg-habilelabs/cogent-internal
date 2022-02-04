@@ -6,10 +6,8 @@ import { Box, Typography } from "@mui/material";
 import Button from "../../components/atoms/button";
 import { Buttons } from "../../constant";
 import { useNavigate } from "react-router-dom";
-import { getData } from "../../store/services/auth";
 import useStyles from "../../custom-hooks/useStyles";
 import styles from "./style";
-import Sidebar from '../../components/molecules/sidebar'
 
 const HomePage = () => {
   const { t } = useTranslation();

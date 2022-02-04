@@ -5,8 +5,8 @@
  * @constructor
  */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import {  useDispatch } from "react-redux";
 
 import { useTranslation } from "react-i18next";
 

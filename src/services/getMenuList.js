@@ -1,28 +1,27 @@
-// import { ROUTES } from "../constants/routes";
+ import { Routes } from  '../constant';
 
 // const modules = require("../constants/modules.json");
-
 
 export default function getMenuList() {
   const menuItems = [
     {
       title: "Dashboard",
-      path: '/dashboard',
+      path: Routes.DASSHBOARD,
       icon: "RateReviewIcon",
-    //   module: modules.USER_ACTIVITY,
+      module: "",
     },
     {
       title: "Home Page",
-      path: '/',
+      path: "/",
       icon: "RateReviewIcon",
-    //   module: modules.USER_ACTIVITY,
+      module: "",
     },
     {
-        title: "Register",
-        path: '/register',
-        icon: "MailIcon",
-       // module: modules.IP_FIREWALL,
-      },
+      title: "Register",
+      path: Routes.REGISTER,
+      icon: "MailIcon",
+      module: "",
+    },
   ];
   return menuItems;
 }
