@@ -6,6 +6,12 @@
 export default function getMenuList() {
   const menuItems = [
     {
+      title: "Dashboard",
+      path: '/dashboard',
+      icon: "RateReviewIcon",
+    //   module: modules.USER_ACTIVITY,
+    },
+    {
       title: "Home Page",
       path: '/',
       icon: "RateReviewIcon",

@@ -47,15 +47,15 @@ const HomePage = () => {
             <Card className={classes.cardTextAlign}>
                 <CardHeader
                     avatar={<AcUnitIcon />}
-                    title="Total Organization"
-                    // subheader={
-                    //     // <span
-                    //     //     style={{ cursor: 'pointer' }}
-                    //     //     onClick={() => navigate('/organization')}
-                    //     // >
-                    //     //     {stats.tenantCount}
-                    //     // </span>
-                    // }
+                    title="Total Students"
+                    subheader={
+                        <span
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => navigate('/dashboard')}
+                        >
+                            {/* {stats.tenantCount} */}
+                        </span>
+                    }
                 />
             </Card>
         </Grid>
@@ -63,12 +63,12 @@ const HomePage = () => {
             <Card className={classes.cardTextAlign}>
                 <CardHeader
                     avatar={<AcUnitIcon />}
-                    title="Register Organization"
+                    title="Register Students"
                     subheader={
                         <span
                             style={{ cursor: 'pointer' }}
                             onClick={() =>
-                                navigate('/organization', {
+                                navigate('/dashboard', {
                                     state: 'registered',
                                 })
                             }
