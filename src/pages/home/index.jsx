@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getData } from "../../store/services/auth";
 import useStyles from "../../custom-hooks/useStyles";
 import styles from "./style";
+import Sidebar from '../../components/molecules/sidebar'
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -25,6 +26,7 @@ const HomePage = () => {
   }, []);
   return (
     <Box display="flex" className={classes.wrapper}>
+
       <Box
         display="flex"
         sx={{
@@ -49,7 +51,7 @@ const HomePage = () => {
                 {t("PLEASE_SIGN_IN")}
               </Typography>
             </Box>
-            <Box className={classes.textMargin}>
+            <Box className={classes.textMargin}    onClick={() => navigate("/dashboard")}>
               <Button btntype={Buttons.PRIMARY} name={t("SIGN_IN")} />
             </Box>
             <Box className={classes.textMargin}>
