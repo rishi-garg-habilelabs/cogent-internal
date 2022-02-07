@@ -86,9 +86,12 @@ const sidebarstyle = theme => ({
                 '& li': {
                     color: 'black',
                     textDecoration: 'none',
+                    borderTop:'2px solid  #80808061',
+                   // borderBottom:'2px solid',
+                    borderRadius:0,
                     padding: '0 15px 0 20px',
                     minHeight: 45,
-                    marginBottom: '10px',
+                   // marginBottom: '10px',
                     '& svg': {
                         marginRight: 10,
                         width: 20,

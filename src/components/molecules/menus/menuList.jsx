@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     display:'flex',
     flexDirection:'column',
     outline:0,
+    borderBottom:'2px solid  #80808061'
 },
 });
 

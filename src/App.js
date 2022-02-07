@@ -34,7 +34,7 @@ const App = () => {
           <AuthProvider>
             <Box
               sx={{ display: "flex" }}
-              //  style={{background:'#e4f5fd'}}
+               style={{background:'#e4f5fd'}}
             >
               <Header />
               <Sidebar />
@@ -79,9 +79,12 @@ const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     padding: "89px 20px 80px 20px !important",
     //  background: theme.palette.primary.dark + " !important",
-    minHeight: "100vh",
+    //minHeight: "100vh",
     width: "calc(100% - 262px)",
     position: "relative",
+     minHeight: 'calc(100vh - 147px)',
+     maxHeight: 'calc(100vh - 147px)',
+    alignItems: "center",
     "& .MuiPaper-root": {
       //  background: theme.palette.primary.main,
     },

@@ -8,7 +8,7 @@ const dashboardStyle = (screenwidth) => ({
     wrapper: {
       justifyContent: "center",
       backgroundColor:'#e4f5fd',
-      height:705
+    alignItems: "center",
     },
     dashboard: {
       borderRadius: 0,
