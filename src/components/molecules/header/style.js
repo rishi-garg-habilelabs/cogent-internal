@@ -13,8 +13,7 @@ const headerStyle = (theme) => ({
     background: "#e4f5fd",
     // boxShadow: '0 0 2px rgba(0,0,0,.3)',
     "& .profileContainer": {
-      display: "flex",
-      alignItems: "center",
+      cursor:'pointer',
       marginLeft: 5,
       "& .MuiAvatar-circle": {
         "@media (max-width:767px)": {
@@ -88,15 +87,7 @@ const headerStyle = (theme) => ({
     "& .notificationBell": {
       //  color: theme.palette.modalTextColor.color,
       height: 30,
-      borderRadius: 0,
-      alignItems: "center",
-      display: "flex",
-      minWidth: 40,
-      justifyContent: "center",
-      alignSelf: "center",
-      background: "none",
-      padding: "0 15px",
-      borderRight: "rgba(163,163,175,.35) solid 1px",
+      paddingRight: 15,
       position: "relative",
       "& svg": {
         fontSize: "30px",

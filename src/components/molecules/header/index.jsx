@@ -10,10 +10,11 @@ import { useDispatch } from "react-redux";
 
 import { useTranslation } from "react-i18next";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import useSideBarOpen from "../../../custom-hooks/useSideBarOpen";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import styles from "./style";
 import useStyles from "../../../custom-hooks/useStyles";
+import useSideBarOpen from "../../../custom-hooks/useSideBarOpen";
 import clsx from "clsx";
 
 const Header = (props) => {
@@ -38,7 +39,10 @@ const Header = (props) => {
       <div className={`${classes.moveSideBar}`} onClick={toggleSidebar}>
         <MenuSharpIcon />
       </div>
-      <div>
+      <div className="notificationBell">
+          <NotificationsIcon />
+        </div>
+      <div className="profileContainer">
         <AccountCircleIcon />
       </div>
     </div>
