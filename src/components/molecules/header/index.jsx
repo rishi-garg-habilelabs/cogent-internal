@@ -6,14 +6,15 @@
  */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { useTranslation } from "react-i18next";
-
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import useSideBarOpen from "../../../custom-hooks/useSideBarOpen";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 import styles from "./style";
 import useStyles from "../../../custom-hooks/useStyles";
+import clsx from "clsx";
 
 const Header = (props) => {
   const { changeTheme } = props;
@@ -29,12 +30,16 @@ const Header = (props) => {
 
   return (
     <div
-      className={`${classes.header} ${
+      className={clsx(
+        classes.header,
         isSideBarOpen ? "" : classes.shrinkHeaderBar
-      }`}
+      )}
     >
       <div className={`${classes.moveSideBar}`} onClick={toggleSidebar}>
         <MenuSharpIcon />
+      </div>
+      <div>
+        <AccountCircleIcon />
       </div>
     </div>
   );

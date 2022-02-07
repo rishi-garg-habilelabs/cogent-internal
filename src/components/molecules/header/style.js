@@ -1,6 +1,7 @@
 const headerStyle = (theme) => ({
   header: {
     width: "calc(100% - 0px)",
+    paddingTop:20,
     float: "right",
     zIndex: "999",
     display: "flex",
@@ -126,9 +127,9 @@ const headerStyle = (theme) => ({
   moveSideBar: {
     position: "absolute",
     left: 0,
-    top: 0,
+    //top: 0,
     marginRight: "auto",
-    minHeight: 60,
+    // minHeight: 60,
     borderRadius: 0,
     display: "flex",
     justifyContent: "center",
@@ -148,7 +149,7 @@ const headerStyle = (theme) => ({
       display: "block",
       //background:theme.palette.sidebarIconBg.color,
       "& + .icon-bar": {
-        marginTop: 2.5,
+        // marginTop: 2.5,
       },
     },
     "@media (max-width:767px)": {
