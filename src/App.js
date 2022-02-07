@@ -32,10 +32,7 @@ const App = () => {
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <AuthProvider>
-            <Box
-              sx={{ display: "flex" }}
-               style={{background:'#e4f5fd'}}
-            >
+            <Box sx={{ display: "flex" }} style={{ background: "#e4f5fd" }}>
               <Header />
               <Sidebar />
               <Box
@@ -43,16 +40,18 @@ const App = () => {
                 className={classes.mainWrapper}
                 sx={{ flexGrow: 1, p: 3 }}
               >
-                <Routes>
-                  <Route path="/" exact element={<Home />} />
-                  <Route
-                    path="/register"
-                    exact
-                    element={<Register fields={getFormFields("admin")} />}
-                  />
+                <Box className={classes.containerWrapper}>
+                  <Routes>
+                    <Route path="/" exact element={<Home />} />
+                    <Route
+                      path="/register"
+                      exact
+                      element={<Register fields={getFormFields("admin")} />}
+                    />
 
-                  <Route path="/dashboard" exact element={<Dashboard />} />
-                </Routes>
+                    <Route path="/dashboard" exact element={<Dashboard />} />
+                  </Routes>
+                </Box>
               </Box>
             </Box>
           </AuthProvider>
@@ -82,8 +81,8 @@ const useStyles = makeStyles((theme) => ({
     //minHeight: "100vh",
     width: "calc(100% - 262px)",
     position: "relative",
-     minHeight: 'calc(100vh - 147px)',
-     maxHeight: 'calc(100vh - 147px)',
+    minHeight: "calc(100vh - 147px)",
+    maxHeight: "calc(100vh - 147px)",
     alignItems: "center",
     "& .MuiPaper-root": {
       //  background: theme.palette.primary.main,
@@ -96,14 +95,15 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "97vh",
   },
   containerWrapper: {
-    //padding: '0 25px 30px 30px',
+    padding: 30,
     float: "left",
-    // minHeight: 'calc(100vh - 147px)',
-    // maxHeight: 'calc(100vh - 147px)',
+    minHeight: "calc(100vh - 160px)",
+    maxHeight: "calc(100vh - 160px)",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: "90px !important",
-    // overflowY: 'auto',
+    overflowY: 'auto',
+    background:'white',
+    width: "calc(100% - 100px)",
     // [theme.breakpoints.up("xl")]: {
     //   padding: "20px 200px 10px",
     // },

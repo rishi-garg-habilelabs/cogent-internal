@@ -2,6 +2,9 @@ const dashboardStyle = (screenwidth) => ({
     mainContainer: {
       justifyContent: "center",
     },
+    mainHeading:{
+      height:70
+    },
     textMargin:{
       marginTop: 20 
     },

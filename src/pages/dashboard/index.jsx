@@ -32,14 +32,9 @@ const HomePage = () => {
         container
         spacing={2}
         className={classes.root}
-        style={{
-          minHeight: "calc(100vh - 147px)",
-          maxHeight: "calc(100vh - 147px)",
-          background: "white",
-        }}
       >
         <Grid item xs={12} className={classes.mainHeading}>
-          <Typography variant="h1" gutterBottom component="h1">
+          <Typography variant="h5">
             Dashboard
           </Typography>
         </Grid>
