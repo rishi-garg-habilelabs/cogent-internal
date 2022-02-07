@@ -11,7 +11,7 @@ const headerStyle = (theme) => ({
     paddingRight: 15,
     position: "fixed",
     background: "#e4f5fd",
-    // boxShadow: '0 0 2px rgba(0,0,0,.3)',
+    boxShadow: '0 0 2px rgba(0,0,0,.3)',
     "& .profileContainer": {
       cursor:'pointer',
       marginLeft: 5,
