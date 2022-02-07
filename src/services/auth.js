@@ -1,6 +1,6 @@
-import request from '../../utils/request';
-import constant from '../../constant/config';
-import {httpservice}from '../../react-config/httpservice'
+import request from '../utils/request';
+import constant from '../constant/config';
+import {httpservice}from '../react-config/httpservice'
 
 
 export function getData() {
