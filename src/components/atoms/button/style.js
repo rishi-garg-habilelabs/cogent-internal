@@ -9,6 +9,7 @@ const buttonStyle = (theme) => ({
       height: "45px",
       marginLeft: "15px",
       minWidth: "90px",
+      padding:5,
       background: "#FF6D00",
       "&:hover": {
         color: "#FF6D00 !important",
@@ -31,6 +32,7 @@ const buttonStyle = (theme) => ({
       marginLeft: "15px",
       minWidth: "90px",
       color: "#FF6D00 !important",
+      padding:5,
       "&:hover": {
         background: "#FF6D00",
         color: "#fff !important",
