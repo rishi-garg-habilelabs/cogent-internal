@@ -47,13 +47,10 @@ export const updateUser = (id, data) => (dispatch, getState) => {
       i18n.changeLanguage(user.language);
       if (previousLang !== lang) {
         dispatch({
-          type: "USER_LANGUAGE_UPDATED",
+          type: "USER_UPDATE",
+          payload: user,
         });
       }
-      dispatch({
-        type: "USER_UPDATE",
-        payload: user,
-      });
     })
     .catch((error) => {
       // handle error
