@@ -17,6 +17,7 @@ import ParentInfo from "./parent-info";
 import { useTranslation } from "react-i18next";
 import constant from "../../constant/config";
 const Register = ({ fields }) => {
+  const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = style();
@@ -100,13 +101,25 @@ const Register = ({ fields }) => {
 
   // const payload = {};
   // const response = await auth.register({ ...payload});
+  const steps = [
+    `${t("PARENT_INFO")}`,
+    `${t("STUDENT_INFO")}`,
+    `${t("PAYMENT_INFO")}`,
+  ];
+  const handleStepper = (index) => {
+    setActiveStep(index);
+  };
   return (
     <div style={{ width: "100%" }}>
       <Box className={classes.header} mt={2}>
-        <RegisterHeader />
+        <RegisterHeader
+          activeStep={activeStep}
+          steps={steps}
+          handleStepper={handleStepper}
+        />
       </Box>
       <Box>
-        <ParentInfo  fields={fields}/>
+        <ParentInfo fields={fields} />
       </Box>
     </div>
   );

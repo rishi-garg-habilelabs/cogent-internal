@@ -1,6 +1,6 @@
 import makeStyles from "@mui/styles/makeStyles";
 
-import {colors} from '../../theme'
+import { colors } from "../../theme";
 const style = makeStyles(() => ({
   root: {
     flexGrow: 1,
@@ -19,15 +19,17 @@ const style = makeStyles(() => ({
     justifyContent: "flex-end",
     marginTop: 20,
   },
-  header:{
-    background:colors.primary,
-    padding:'30px 12px 12px',
-    "& .MuiStepLabel-label.MuiStepLabel-alternativeLabel":{
-     color:'white'
+  header: {
+    background: colors.primary,
+    padding: "30px 12px 12px",
+    "& .MuiStepLabel-label.MuiStepLabel-alternativeLabel": {
+      color: "white",
     },
-    marginTop:0
-
-  }
+    marginTop: 0,
+    "& .MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel": {
+      cursor: "pointer",
+    },
+  },
 }));
 
 export default style;

@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 
 import {colors} from '../../../theme'
-const parentinfostyle = makeStyles(() => ({
+const studentinfostyle = makeStyles(() => ({
   root: {
     flexGrow: 1,
     justifyContent: "center",
@@ -21,4 +21,4 @@ const parentinfostyle = makeStyles(() => ({
   },
 }));
 
-export default parentinfostyle;
+export default studentinfostyle;

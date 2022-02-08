@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Card, Grid,CardContent } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import _ from 'lodash';
-import style from "./style";
+import style from "../style";
 import TextInput from "../../../components/atoms/textfield";
 import { auth } from "../../../services/auth";
 import Button from "../../../components/atoms/button";
@@ -14,7 +14,7 @@ import { handleSnackBar } from "../../../utils/methods";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { useTranslation } from 'react-i18next';
 import constant from '../../../constant/config';
-const ParentInfo = ({fields}) => {
+const StudentInfo = ({fields}) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = style();
@@ -110,7 +110,7 @@ const ParentInfo = ({fields}) => {
     >
       <Grid container spacing="4" justifyContent="flex-end">
         <Grid item className={classes.title} xs={12}>
-         {t("PARENT_INFO")}
+         Parent Info
         </Grid>
         <Grid item xs={8}>
          
@@ -146,4 +146,4 @@ const ParentInfo = ({fields}) => {
   );
 };
 
-export default ParentInfo;
+export default StudentInfo;
