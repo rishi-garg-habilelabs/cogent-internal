@@ -45,7 +45,7 @@ const HomePage = () => {
             <Box style={{ marginTop: 5 }}>
               <Typography
                 color="text.primary"
-                sx={{ fontSize: 18, fontWeight: 500 }}
+                sx={{ fontSize: 18, fontWeight: 500 ,textAlign:'left'}}
               >
                 {t("RETURN")}
               </Typography>
@@ -61,7 +61,7 @@ const HomePage = () => {
             <Box className={classes.textMargin}>
               <Typography
                 color="text.primary"
-                sx={{ fontSize: 14,color:"red" ,fontWeight: 200 }}
+                sx={{ fontSize: 14,color:"red" ,textAlign:'left',fontWeight: 200 }}
               >
                 {t("RECOVER_PASS")}
               </Typography>
@@ -78,7 +78,7 @@ const HomePage = () => {
             <Box className={classes.textMargin}>
               <Typography
                 color="#1976d2"
-                sx={{ fontSize: 14, fontWeight: 500 }}
+                sx={{ fontSize: 14, fontWeight: 500 ,textAlign:'left'}}
               >
                 {t("SIGN_IN_REGITER_VIDEOS")}
               </Typography>

@@ -12,9 +12,12 @@ import { getUserLocale } from '../../utils/localStorageMethod';
 import { checkFormValid } from "../../utils/validations";
 import { handleSnackBar } from "../../utils/methods";
 import { AuthContext } from '../../contexts/AuthProvider';
+import { RegisterHeader } from '../../components/molecules/header';
+import { useTranslation } from 'react-i18next';
 import constant from '../../constant/config';
 const Register = ({fields}) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const classes = style();
   const [formFields, setFormFields] = useState(fields);
   const { setLoading, setSnackbarConfig } = useContext(AuthContext);
@@ -98,6 +101,14 @@ const Register = ({fields}) => {
   // const response = await auth.register({ ...payload});
   return (
     <Card>
+    <Grid
+      container
+      className={classes.header}
+      spacing="4"
+      justifyContent="center"
+    >
+      <RegisterHeader/>
+    </Grid>
       <CardContent>
     <Grid
       container

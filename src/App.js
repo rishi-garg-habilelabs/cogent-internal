@@ -16,7 +16,7 @@ import Dashboard from "./pages/dashboard";
 import Home from "./pages/home";
 import { registerFormFields } from "../src/utils/constant";
 import Sidebar from "./components/molecules/sidebar";
-import Header from "./components/molecules/header";
+import Header from "./components/molecules/header/commonheader";
 import Login from "./pages/login";
 
 const theme = createTheme();
@@ -42,7 +42,12 @@ const App = () => {
               }}
             >
               <Routes>
-                <Route path="/" exact element={<Login />} />{" "}
+                <Route path="/" exact element={<Login />} />
+                <Route
+                      path="/register"
+                      exact
+                      element={<Register fields={getFormFields("admin")} />}
+                    />
               </Routes>
             </Box>
             {/* <Box sx={{ display: "flex" }} style={{ background: "#e4f5fd" }}>

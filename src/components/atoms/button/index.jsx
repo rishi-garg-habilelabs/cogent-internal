@@ -7,11 +7,12 @@ import BTN from '../../../constant/buttonTypes'
 
 
 export default function ButtonAtom (props) {
-  const { onClick, name, disabled,btntype,icon,type,className,startIcon} = props
+  const { onClick, name, disabled,btntype,icon,type,className,startIcon,customCss} = props
   const classes = useStyles(styles)()
 
       return (
-        <Button
+        <Button 
+            style={customCss}
             type={type}
             className={clsx(className,btntype === BTN.PRIMARY?classes.primaryButton:btntype === BTN.SECONDARY?classes.secButton:classes.customizedButton)}
             onClick={onClick}

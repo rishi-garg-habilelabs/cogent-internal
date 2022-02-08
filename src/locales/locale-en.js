@@ -14,7 +14,10 @@ const en = {
   JOIN_BACK:
     " All the students who have been assorted to Manabadi and are joining back will be considered as returning students.",
   RECOVER_PASS:"Recover Password ?",
-  SIGN_IN_REGITER_VIDEOS:"Sign in / Register help videos"
+  SIGN_IN_REGITER_VIDEOS:"Sign in / Register help videos",
+  PARENT_INFO:"Parent Info",
+  STUDENT_INFO:"Student Info",
+  PAYMENT_INFO:"Payment Info"
   };
 
 export default en;
