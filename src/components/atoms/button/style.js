@@ -12,7 +12,7 @@ const buttonStyle = (theme) => ({
       padding:8,
       background: "#1976d2",
       "&:hover": {
-        color: "#FF6D00 !important",
+        color: "#1976d2 !important",
         background: "hsl(240deg 8% 93%)",
       },
     },
