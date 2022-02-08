@@ -1,4 +1,4 @@
 const constant = {
-  API_BASE: 'http://localhost:8080/api/v1/',
+  API_BASE: 'https://jsonplaceholder.typicode.com/',
   };
   export default constant;

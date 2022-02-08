@@ -9,19 +9,18 @@ import { useNavigate } from "react-router-dom";
 import useStyles from "../../custom-hooks/useStyles";
 import Divider from '../../components/atoms/divider'
 import styles from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import { getToDo } from '../../store/actions/auth';
 
 const HomePage = () => {
   const { t } = useTranslation();
   const classes = useStyles(styles)();
   const navigate = useNavigate();
-  // make service and  call api using respective service
-  const getDataApi = async () => {
-    // const payload = {};
-    //  const response =  await getData()
-    //  console.log('response',response)
-  };
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state);
+  console.log(store);
   React.useEffect(() => {
-    getDataApi();
+    dispatch(getToDo());
   }, []);
   return (
     <Box display="flex" className={classes.wrapper}>

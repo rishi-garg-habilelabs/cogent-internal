@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 import style from "./style";
 import TextInput from "../../components/atoms/textfield";
-import { auth } from "../../services/auth";
+// import { auth } from "../../services/auth";
 import Button from "../../components/atoms/button";
 import { Buttons } from "../../constant";
 import FormBuilder from "../../components/molecules/form";

@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuChildren from "./menuChildren";
 import CMenu from "./menuWrapper";
 import MenuList from "@material-ui/core/MenuList/MenuList";
-import getMenuList from "../../../services/getMenuList";
-// import permissionInstance from "../../../services/Permissions";
 
 const useStyles = makeStyles({
   sidebarMenus:{
@@ -19,7 +17,7 @@ const useStyles = makeStyles({
 
 const CMenuList = (props) => {
   const classes = useStyles();
-  const menuList = getMenuList();
+  const menuList = [];
   console.log('menuItemsmenuItemsmenuItems',menuList)
 
   const [openMenu, setOpenMenu] = useState(true);

@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import i18n from '../../src/i18n';
-import {updateUser} from "../store/actions/getUser";
+// import {updateUser} from "../store/actions/auth";
 
 /**
  * Hook to set default language of user.
@@ -17,7 +17,7 @@ export default function useUserLanguage(){
             localStorage.setItem('langugae', lang);
         
         if ( user?.language !== lang) {
-            dispatch(updateUser(user?._id, {language : lang}));
+            // dispatch(updateUser(user?._id, {language : lang}));
         }
     }
     return {

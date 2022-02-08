@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { getData } from "../../services/auth";
+// import { getData } from "../../services/auth";
 import useStyles from "../../custom-hooks/useStyles";
 import styles from "./style";
 import useScreenWidth from "../../custom-hooks/useScreenWidth";
