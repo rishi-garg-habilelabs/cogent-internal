@@ -16,6 +16,7 @@ import { RegisterHeader } from "../../components/molecules/header";
 import ParentInfo from "./parent-info";
 import { useTranslation } from "react-i18next";
 import constant from "../../constant/config";
+import StudentInfo from "./student-info/student-info";
 const Register = ({ fields }) => {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
@@ -119,7 +120,11 @@ const Register = ({ fields }) => {
         />
       </Box>
       <Box>
-        <ParentInfo fields={fields} />
+        {activeStep === 0 ? (
+          <ParentInfo fields={fields} />
+        ) : (
+          <StudentInfo fields={fields} />
+        )}
       </Box>
     </div>
   );
