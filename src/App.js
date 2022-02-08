@@ -17,6 +17,7 @@ import Home from "./pages/home";
 import { registerFormFields } from "../src/utils/constant";
 import Sidebar from "./components/molecules/sidebar";
 import Header from "./components/molecules/header";
+import Login from "./pages/login";
 
 const theme = createTheme();
 
@@ -32,7 +33,19 @@ const App = () => {
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <AuthProvider>
-            <Box sx={{ display: "flex" }} style={{ background: "#e4f5fd" }}>
+            <Box
+              sx={{ display: "flex" }}
+              style={{
+                background: "#e4f5fd",
+                minHeight: "calc(100vh)",
+                maxHeight: "calc(100vh)",
+              }}
+            >
+              <Routes>
+                <Route path="/" exact element={<Login />} />{" "}
+              </Routes>
+            </Box>
+            {/* <Box sx={{ display: "flex" }} style={{ background: "#e4f5fd" }}>
               <Header />
               <Sidebar />
               <Box
@@ -53,7 +66,7 @@ const App = () => {
                   </Routes>
                 </Box>
               </Box>
-            </Box>
+            </Box> */}
           </AuthProvider>
         </ThemeProvider>
       </StyledEngineProvider>
@@ -101,8 +114,8 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "calc(100vh - 160px)",
     alignItems: "center",
     justifyContent: "space-between",
-    overflowY: 'auto',
-    background:'white',
+    overflowY: "auto",
+    background: "white",
     width: "calc(100% - 100px)",
     // [theme.breakpoints.up("xl")]: {
     //   padding: "20px 200px 10px",

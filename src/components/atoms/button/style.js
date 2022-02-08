@@ -2,15 +2,15 @@ const buttonStyle = (theme) => ({
   primaryButton: {
     "&.MuiButton-root": {
       borderRadius: 0,
-      textTransform: "uppercase !important",
+      textTransform: "none !important",
       color: "#f3f8fe !important",
       boxShadow: "0 4px 4px -2px hsl(0deg 0% 65% / 25%)",
       boxSizing: "border-box",
       height: "45px",
       marginLeft: "15px",
       minWidth: "90px",
-      padding:5,
-      background: "#FF6D00",
+      padding:8,
+      background: "#1976d2",
       "&:hover": {
         color: "#FF6D00 !important",
         background: "hsl(240deg 8% 93%)",
@@ -23,7 +23,7 @@ const buttonStyle = (theme) => ({
   secButton: {
     "&.MuiButton-root": {
       borderRadius: 0,
-      textTransform: "uppercase",
+      textTransform: "none",
       background: "white",
       boxShadow:
         "0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%) !important",
