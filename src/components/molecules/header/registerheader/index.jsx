@@ -76,12 +76,12 @@ function ColorlibStepIcon(props) {
 
 
 
-export default function CustomizedSteppers() {
+export default function CustomizedSteppers(props) {
  const { t } = useTranslation();
 const steps = [`${t("PARENT_INFO")}`, `${t("STUDENT_INFO")}` ,`${t("PAYMENT_INFO")}`];
   return (
     <Stack sx={{ width: '100%' }} spacing={4}>
-      <Stepper alternativeLabel activeStep={1} connector={<ColorlibConnector />}>
+      <Stepper alternativeLabel activeStep={0} connector={<ColorlibConnector />}>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
