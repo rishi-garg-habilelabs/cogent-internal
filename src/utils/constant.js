@@ -60,7 +60,7 @@ import {
       required: true,
     },
     {
-      placeholder: 'MIDDLE_NAME',
+      placeholder: 'MIDDLENAME',
       key: 'middlename',
       type: 'text',
       role: ['admin'],
@@ -68,7 +68,7 @@ import {
       required: true,
     },
     {
-      placeholder: 'LAST_NAME',
+      placeholder: 'LASTNAME',
       key: 'lastName',
       type: 'text',
       role: ['admin'],
