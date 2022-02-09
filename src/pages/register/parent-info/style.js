@@ -2,6 +2,9 @@ import makeStyles from "@mui/styles/makeStyles";
 
 import {colors} from '../../../theme'
 const parentinfostyle = makeStyles(() => ({
+  inputError:{
+    color:'red'
+  },
   root: {
     marginTop: 20,
     width:'100% important'

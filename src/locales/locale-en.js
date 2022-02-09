@@ -28,7 +28,16 @@ const en = {
   EMAIL:"Email",
   CONTACTNO:"Contact No.",
   PROFESSION:"Profession",
-  NAMEOFCOMPANY:"Name of company"
+  NAMEOFCOMPANY:"Name of company",
+
+  TITLE_REQUIRED:"Title Required",
+  FIRSTNAME_REQUIRED:"First Name Required",
+  LASTNAME_REQUIRED:"Last Name Required",
+  MIDDLENAME_REQUIRED:"Middle Name Required",
+  EMAIL_REQUIRED:"Email Required",
+  CONTACTNO_REQUIRED:"Contact No. Required",
+  PROFESSION_REQUIRED:"Profession Required",
+  NAMEOFCOMPANY_REQUIRED:"Name of company Required"
   };
 
 export default en;
