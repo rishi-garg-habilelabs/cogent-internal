@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
-import Menu from "./menu";
-import { useTranslation } from "react-i18next";
-import icons from "../../../assets/icons";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import Menu from './menu';
+import icons from '../../../assets/icons';
 
 /**
  * Custom menu, this decides what to show and what not dynamically.
@@ -13,9 +13,9 @@ import { useDispatch } from "react-redux";
  * @returns {*}
  * @constructor
  */
-const CMenu = (props) => {
+function CMenu(props) {
   const { menu, isSubMenu, setCloseMenu } = props;
-  const { t } = useTranslation("translation");
+  const { t } = useTranslation('translation');
   const dispatch = useDispatch();
   let IconComponent;
   if (menu.icon && icons[menu.icon]) {
@@ -23,8 +23,8 @@ const CMenu = (props) => {
   }
 
   function toggleSidebar() {
-    console.log('in syoggle')
-    dispatch({ type: "MOBILE_MENU" });
+    console.log('in syoggle');
+    dispatch({ type: 'MOBILE_MENU' });
   }
 
   return (
@@ -34,14 +34,12 @@ const CMenu = (props) => {
       setCloseMenu={setCloseMenu}
       toggleSidebar={toggleSidebar}
     >
-      {IconComponent ? <IconComponent /> : ""}
-      {
-        <>
-          <span className="menuList">{t(menu.title)}</span>
-        </>
-      }
+      {IconComponent ? <IconComponent /> : ''}
+      <>
+        <span className="menuList">{t(menu.title)}</span>
+      </>
     </Menu>
   );
-};
+}
 
 export default CMenu;

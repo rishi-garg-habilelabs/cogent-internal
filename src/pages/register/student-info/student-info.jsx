@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Card, Grid, CardContent } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import _ from "lodash";
-import style from "./style";
-import Button from "../../../components/atoms/button";
-import { Buttons } from "../../../constant";
-import FormBuilder from "../../../components/molecules/form";
-import { checkFormValid } from "../../../utils/validations";
-import { useTranslation } from "react-i18next";
-const StudentInfo = ({ fields }) => {
+import React, { useState } from 'react';
+import { Card, Grid, CardContent } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import style from './style';
+import Button from '../../../components/atoms/button';
+import { Buttons } from '../../../constant';
+import FormBuilder from '../../../components/molecules/form';
+import { checkFormValid } from '../../../utils/validations';
+
+function StudentInfo({ fields }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const classes = style();
@@ -18,11 +18,11 @@ const StudentInfo = ({ fields }) => {
     checked: false,
   });
   const onButtonAction = async (buttonKey) => {
-    if (buttonKey === "save") {
+    if (buttonKey === 'save') {
       const result = checkFormValid(formFields);
       setFormFields(result.fields);
-    } else if (buttonKey === "cancel") {
-      navigate("/login");
+    } else if (buttonKey === 'cancel') {
+      navigate('/login');
     }
   };
 
@@ -43,7 +43,7 @@ const StudentInfo = ({ fields }) => {
         >
           <Grid container spacing="4" justifyContent="flex-end">
             <Grid item className={classes.title} xs={12}>
-              {t("STUDENT_INFO")}
+              {t('STUDENT_INFO')}
             </Grid>
             <Grid item xs={8}>
               <FormBuilder
@@ -51,12 +51,10 @@ const StudentInfo = ({ fields }) => {
                 onButtonAction={onButtonAction}
                 onFieldChange={onFieldChange}
                 adressErrorCheckBox={adressErrorCheckBox}
-                onAddressCheckBoxChange={(con) =>
-                  setAdressErrorCheckBox({
-                    ...adressErrorCheckBox,
-                    checked: con,
-                  })
-                }
+                onAddressCheckBoxChange={(con) => setAdressErrorCheckBox({
+                  ...adressErrorCheckBox,
+                  checked: con,
+                })}
               />
             </Grid>
           </Grid>
@@ -75,6 +73,6 @@ const StudentInfo = ({ fields }) => {
       </CardContent>
     </Card>
   );
-};
+}
 
 export default StudentInfo;

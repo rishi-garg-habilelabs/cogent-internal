@@ -6,7 +6,7 @@ import MuiAlert from '@mui/material/Alert';
 
 const Alert = React.forwardRef((props, ref) => <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />);
 
-const Toaster = ({ snackbarData, revertSnackBarData }) => {
+function Toaster({ snackbarData, revertSnackBarData }) {
   const [data, setData] = useState({});
   useEffect(() => {
     setData(snackbarData);
@@ -31,7 +31,7 @@ const Toaster = ({ snackbarData, revertSnackBarData }) => {
    )}
     </>
   );
-};
+}
 
 Toaster.propTypes = {
   snackbarData: PropTypes.objectOf(Object),

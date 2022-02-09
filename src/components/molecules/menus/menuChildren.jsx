@@ -1,97 +1,98 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import CollapsibleMenu from "./collapsibleMenu";
-import { useTranslation } from "react-i18next";
-import icons from "../../../assets/icons";
-import MenuWrapper from "./menuWrapper";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import CollapsibleMenu from './collapsibleMenu';
+import icons from '../../../assets/icons';
+import MenuWrapper from './menuWrapper';
 
 const useStyles = makeStyles((theme) => ({
   activeDropdown: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    background: "none",
-    height: "100%",
-    padding: "6px 6px 6px 16px",
-    borderLeft: "0 !important",
-    "&:hover": {
-      backgroundColor: "transparent !important",
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    background: 'none',
+    height: '100%',
+    padding: '6px 6px 6px 16px',
+    borderLeft: '0 !important',
+    '&:hover': {
+      backgroundColor: 'transparent !important',
       borderLeft: 0,
     },
-    "& svg": {
-      fill: theme.palette.sidebarText.color + "!important",
+    '& svg': {
+      fill: `${theme.palette.sidebarText.color}!important`,
     },
-    "& span": {
+    '& span': {
       color: theme.palette.sidebarText.color,
-      fontWeight: "normal",
+      fontWeight: 'normal',
     },
-    "@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)":
+    '@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)':
       {
-        display: "inline-block",
-        "& span": {
+        display: 'inline-block',
+        '& span': {
           paddingTop: 8,
-          float: "left",
+          float: 'left',
         },
       },
   },
   activeMenuButton: {
     background: theme.palette.activeMenu.color,
-    borderLeft: "3px solid #0065f7 !important",
-    "& svg": {
-      fill: "#0065f7 !important",
+    borderLeft: '3px solid #0065f7 !important',
+    '& svg': {
+      fill: '#0065f7 !important',
     },
-    "& span": {
+    '& span': {
       color: theme.palette.modalTextColor.color,
-      fontWeight: "bold",
+      fontWeight: 'bold',
     },
-    "&:hover": {
+    '&:hover': {
       background: theme.palette.activeMenu.color,
-      borderLeft: "3px solid #0065f7",
-      "&:before": {
-        backgroundColor: "#0065f7",
+      borderLeft: '3px solid #0065f7',
+      '&:before': {
+        backgroundColor: '#0065f7',
       },
-      "&:after": {
+      '&:after': {
         backgroundColor: theme.palette.activeMenu.color,
       },
     },
   },
 }));
 
-const MenuChildren = (props) => {
+function MenuChildren(props) {
   const classes = useStyles();
-  let location = useLocation();
-  let path = location.pathname;
-  const { t } = useTranslation("translation");
-  const { openMenu, setOpenMenuItem, menu, isSubMenu } = props;
+  const location = useLocation();
+  const path = location.pathname;
+  const { t } = useTranslation('translation');
+  const {
+    openMenu, setOpenMenuItem, menu, isSubMenu,
+  } = props;
   const [selected, setSelected] = useState();
-  const ArrowDropDownIcon = icons.ArrowDropDownIcon;
+  const { ArrowDropDownIcon } = icons;
   let IconComponent;
   if (menu.icon && icons[menu.icon]) {
     IconComponent = icons[menu.icon];
   }
-  //set open on first load.
+  // set open on first load.
   useEffect(() => {
-    if (path === "/") {
+    if (path === '/') {
       setOpenMenuItem(false);
       return;
     }
-    if (path.split("/")[1] === "/review") {
-      setSelected("REVIEW");
+    if (path.split('/')[1] === '/review') {
+      setSelected('REVIEW');
       return;
     }
-    if (path.split("/")[1] === "add-comment") {
-      setOpenMenuItem("REVIEW_REPORTS");
+    if (path.split('/')[1] === 'add-comment') {
+      setOpenMenuItem('REVIEW_REPORTS');
       return;
     }
-    if (path.split("/")[1] === menu.path.split("/")[1]) {
+    if (path.split('/')[1] === menu.path.split('/')[1]) {
       setOpenMenuItem(menu.title);
       return;
     }
-    setSelected(path.split("/")[1] === menu.path.split("/")[1]);
-    return;
+    setSelected(path.split('/')[1] === menu.path.split('/')[1]);
   }, [path]);
 
   return (
@@ -102,23 +103,19 @@ const MenuChildren = (props) => {
       path={menu.path}
       selected={selected}
       setOpenMenuItem={setOpenMenuItem}
-      title={
+      title={(
         <div className={`${classes.activeDropdown}`}>
-          {IconComponent ? <IconComponent /> : ""}
-          <React.Fragment>
-            <span className="menuList">{t(menu.title)}</span>
-          </React.Fragment>
+          {IconComponent ? <IconComponent /> : ''}
+          <span className="menuList">{t(menu.title)}</span>
           <span className="leftAuto">
             <ArrowDropDownIcon />
           </span>
         </div>
-      }
+      )}
     >
-      {menu.children.map((subMenu, index) => {
-        return <MenuWrapper menu={subMenu} isSubMenu={true} key={index} />;
-      })}
+      {menu.children.map((subMenu, index) => <MenuWrapper menu={subMenu} isSubMenu key={index} />)}
     </CollapsibleMenu>
   );
-};
+}
 
 export default MenuChildren;

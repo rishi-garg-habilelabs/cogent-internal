@@ -1,90 +1,86 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import MenuItem from "@material-ui/core/MenuItem/MenuItem";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import MenuItem from '@material-ui/core/MenuItem/MenuItem';
+import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 
-import useScreenWidth from "../../../custom-hooks/useScreenWidth";
+import useScreenWidth from '../../../custom-hooks/useScreenWidth';
 
 const useStyles = makeStyles((theme) => ({
   activeMenuButton: {
-   // background: theme.palette.activeMenu.color,
-    borderLeft: "3px solid #0065f7 !important",
-    "& svg": {
-      fill: "#0065f7 !important",
+    // background: theme.palette.activeMenu.color,
+    borderLeft: '3px solid #0065f7 !important',
+    '& svg': {
+      fill: '#0065f7 !important',
     },
-    "& span": {
-     // color: theme.palette.modalTextColor.color,
-      fontWeight: "bold",
+    '& span': {
+      // color: theme.palette.modalTextColor.color,
+      fontWeight: 'bold',
     },
-    "&:hover": {
-     // background: theme.palette.activeMenu.color,
-      borderLeft: "3px solid #0065f7",
-      "&:before": {
-        backgroundColor: "#0065f7",
+    '&:hover': {
+      // background: theme.palette.activeMenu.color,
+      borderLeft: '3px solid #0065f7',
+      '&:before': {
+        backgroundColor: '#0065f7',
       },
-      "&:after": {
-       // backgroundColor: theme.palette.activeMenu.color,
+      '&:after': {
+        // backgroundColor: theme.palette.activeMenu.color,
       },
     },
   },
 }));
 
-const Menu = (props) => {
-  let location = useLocation();
+function Menu(props) {
+  const location = useLocation();
   const dispatch = useDispatch();
-  let path = location.pathname;
+  const path = location.pathname;
   const classes = useStyles();
   const screenWidth = useScreenWidth();
   const [selected, setSelected] = useState();
-  const getAdvanceQuery = {} //useSelector((state) => state.getAdvanceQuery.data);
+  const getAdvanceQuery = {}; // useSelector((state) => state.getAdvanceQuery.data);
 
-  //set open on first load.
+  // set open on first load.
   useEffect(() => {
-    let scrollId = location.search.split("*")[1];
-    if (location.search && location.search.split("=")[1] && scrollId) {
-      setSelected(location.search.split("=")[1].split("*")[0] === props.to);
-      return;
-    } else if (location.search && location.search.split("=")[1]) {
+    const scrollId = location.search.split('*')[1];
+    if (location.search && location.search.split('=')[1] && scrollId) {
+      setSelected(location.search.split('=')[1].split('*')[0] === props.to);
+    } else if (location.search && location.search.split('=')[1]) {
       // setSelected(location.search.split("=")[1] === props.to);
       if (
-        path?.split("/")[2] === props?.to?.split("/")[2] && 
-        location.search.split("=")[0].includes('type')
+        path?.split('/')[2] === props?.to?.split('/')[2]
+        && location.search.split('=')[0].includes('type')
       ) {
         setSelected(true);
       } else {
-        setSelected(location?.search?.split("=")[1] === props?.to)
+        setSelected(location?.search?.split('=')[1] === props?.to);
       }
-      return;
     } else if (
-      props.to.split("/")[2] &&
-      path.split("/")[2] &&
-      path.split("/")[2] === props.to.split("/")[2]
+      props.to.split('/')[2]
+      && path.split('/')[2]
+      && path.split('/')[2] === props.to.split('/')[2]
     ) {
       setSelected(true);
-      return;
     } else {
       setSelected(path === props.to);
       if (
-        getAdvanceQuery &&
-        getAdvanceQuery.route &&
-        getAdvanceQuery.route !== path
+        getAdvanceQuery
+        && getAdvanceQuery.route
+        && getAdvanceQuery.route !== path
       ) {
-       // dispatch({ type: "SET_ADVANCE_QUERY", data: {} });
+        // dispatch({ type: "SET_ADVANCE_QUERY", data: {} });
       }
-      return;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path, location.search]);
 
   function closeMenuHandler() {
-    console.log("in close")
+    console.log('in close');
     props.setCloseMenu();
     dispatch({
-      type: "GET_ACTIVE_TABS",
+      type: 'GET_ACTIVE_TABS',
       id: 0,
     });
-    dispatch({ type: "ACTIVE_SIDE_BAR", id: 0 });
+    dispatch({ type: 'ACTIVE_SIDE_BAR', id: 0 });
     if (screenWidth && screenWidth < 1025) {
       props.toggleSidebar();
     }
@@ -101,14 +97,14 @@ const Menu = (props) => {
         !props.isSubMenu
           ? closeMenuHandler
           : screenWidth && screenWidth < 1025
-          ? mobileMenuHandle
-          : null
+            ? mobileMenuHandle
+            : null
       }
     >
-      <MenuItem className={selected ? classes.activeMenuButton : ""}>
+      <MenuItem className={selected ? classes.activeMenuButton : ''}>
         {props.children}
       </MenuItem>
     </Link>
   );
-};
+}
 export default Menu;

@@ -12,21 +12,19 @@ function TabsAtom({
   const { t } = useTranslation();
 
   return (
-    <>
-      <AppBar position="static">
-        <Tabs value={value} aria-label="simple tabs example">
-          {options.map((opt, index) => (
-            <Tab
-              key={opt.key}
-              style={{ textTransform: 'none' }}
-              label={t(opt.label)}
-              onClick={() => onTabClick({ ...opt, index })}
-              disableRipple
-            />
-          ))}
-        </Tabs>
-      </AppBar>
-    </>
+    <AppBar position="static">
+      <Tabs value={value} aria-label="simple tabs example">
+        {options.map((opt, index) => (
+          <Tab
+            key={opt.key}
+            style={{ textTransform: 'none' }}
+            label={t(opt.label)}
+            onClick={() => onTabClick({ ...opt, index })}
+            disableRipple
+          />
+        ))}
+      </Tabs>
+    </AppBar>
   );
 }
 

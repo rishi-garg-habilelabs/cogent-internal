@@ -1,33 +1,34 @@
-import makeStyles from "@mui/styles/makeStyles";
+import makeStyles from '@mui/styles/makeStyles';
 
-import { colors } from "../../theme";
+import { colors } from '../../theme';
+
 const style = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    justifyContent: "center",
-    width: "100% !important",
+    justifyContent: 'center',
+    width: '100% !important',
     marginTop: 20,
   },
   title: {
-    textAlign: "center",
+    textAlign: 'center',
     fontWeight: 800,
-    color: "black",
+    color: 'black',
     fontSize: 22,
     paddingBlock: 20,
   },
   button: {
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
     marginTop: 20,
   },
   header: {
     background: colors.primary,
-    padding: "30px 12px 12px",
-    "& .MuiStepLabel-label.MuiStepLabel-alternativeLabel": {
-      color: "white",
+    padding: '30px 12px 12px',
+    '& .MuiStepLabel-label.MuiStepLabel-alternativeLabel': {
+      color: 'white',
     },
     marginTop: 0,
-    "& .MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel": {
-      cursor: "pointer",
+    '& .MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel': {
+      cursor: 'pointer',
     },
   },
 }));

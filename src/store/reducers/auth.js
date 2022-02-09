@@ -1,13 +1,13 @@
-import * as Constant from '../constant';
+import Constant from '../constant';
 
 const initialState = {
   todos: [],
 };
 
-const auth = (state = initialState, action) => {
+const auth = (state = initialState, action = {}) => {
   switch (action.type) {
     case Constant.GET_TO_DOS:
-      
+
       return {
         ...state,
         todos: action.payload,
