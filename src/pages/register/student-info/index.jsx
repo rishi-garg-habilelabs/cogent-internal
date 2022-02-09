@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import ButtonAtom from '../../../components/atoms/button';
 import TextFieldAtom from '../../../components/atoms/textfield';
+import SelectAtom from '../../../components/atoms/selectbox';
 import { Buttons } from '../../../constant';
 import useStyles from '../../../custom-hooks/useStyles';
 import styles from './style';
@@ -21,6 +22,7 @@ function Item(props) {
         fontWeight: '700',
         ...sx,
       }}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...other}
     />
   );
@@ -78,7 +80,7 @@ export default function StudentInfo() {
           errors,
           setValues,
           handleSubmit,
-          handleBlur
+          handleBlur,
         }) => (
           <form
             onSubmit={handleSubmit}
@@ -195,39 +197,41 @@ export default function StudentInfo() {
               }}
             >
               <Item>
-                <TextFieldAtom
-                  label={t('EMAIL')}
+                <SelectAtom
+                  minWidth="100%"
+                  label={t('GENDER')}
                   id="email"
-                  name="email"
+                  name="gender"
                   type="text"
-                  value={values.email}
+                  value={values.gender}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     setValues({
                       ...values,
-                      email: event.target.value.trim(),
+                      gender: event.target.value.trim(),
                     });
                   }}
-                  error={errors?.email}
-                  errorText={errors.email}
+                  error={errors?.gender}
+                  errorText={errors.gender}
                 />
               </Item>
               <Item>
-                <TextFieldAtom
-                  label={t('CONTACTNO')}
-                  id="contact"
-                  name="contact"
+                <SelectAtom
+                  minWidth="100%"
+                  label={t('TSHIRT')}
+                  id="tShirt"
+                  name="tShirt"
                   type="text"
-                  value={values.contact}
+                  value={values.tShirt}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     setValues({
                       ...values,
-                      contact: event.target.value.trim(),
+                      tShirt: event.target.value.trim(),
                     });
                   }}
-                  error={errors?.contact}
-                  errorText={errors?.contact}
+                  error={errors?.tShirt}
+                  errorText={errors?.tShirt}
                 />
               </Item>
             </Box>
@@ -244,39 +248,40 @@ export default function StudentInfo() {
               }}
             >
               <Item>
-                <TextFieldAtom
-                  label={t('PROFESSION')}
-                  id="profession"
-                  name="profession"
+                <SelectAtom
+                  minWidth="100%"
+                  label={t('GRADE')}
+                  id="grade"
+                  name="grade"
                   type="text"
-                  value={values.profession}
+                  value={values.grade}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     setValues({
                       ...values,
-                      profession: event.target.value.trim(),
+                      grade: event.target.value.trim(),
                     });
                   }}
-                  error={errors?.profession}
-                  errorText={errors?.profession}
+                  error={errors?.grade}
+                  errorText={errors.grade}
                 />
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t('NAMEOFCOMPANY')}
-                  id="company"
-                  name="company"
+                  label={t('SEARCH_SCHOOL')}
+                  id="searchSchool"
+                  name="searchSchool"
                   type="text"
-                  value={values.company}
+                  value={values.searchSchool}
                   onBlur={handleBlur}
                   onChange={(event) => {
                     setValues({
                       ...values,
-                      company: event.target.value.trim(),
+                      searchSchool: event.target.value.trim(),
                     });
                   }}
-                  error={errors?.company}
-                  errorText={errors?.company}
+                  error={errors?.searchSchool}
+                  errorText={errors?.searchSchool}
                 />
               </Item>
             </Box>
@@ -287,6 +292,39 @@ export default function StudentInfo() {
                 flexWrap: 'wrap',
                 alignContent: 'flex-start',
                 p: 1,
+                m: 1,
+                bgcolor: 'background.paper',
+                borderRadius: 1,
+              }}
+            >
+              <Item>
+                <SelectAtom
+                  minWidth="100%"
+                  label={t('SORTED_NEAREST')}
+                  id="sortedNearest"
+                  name="sortedNearest"
+                  type="text"
+                  value={values.sortedNearest}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      sortedNearest: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.sortedNearest}
+                  errorText={errors.sortedNearest}
+                />
+              </Item>
+            </Box>
+
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-end',
+                justifyContent: 'end',
+                p: 2,
                 m: 1,
                 bgcolor: 'background.paper',
                 borderRadius: 1,
@@ -297,8 +335,8 @@ export default function StudentInfo() {
                 className={classes.activeButton}
                 // disabled={isSubmitting || !isValid || !dirty}
                 onClick={handleSubmit}
-                name="SAVE"
-               />
+                name={t('SAVE_CONTINUE')}
+              />
             </Box>
 
             {showLoader && (

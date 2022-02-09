@@ -6,12 +6,12 @@ import Select from '@mui/material/Select';
 
 export default function SelectAutoWidth(props) {
   const {
-    optionList, handleSelect, value, label,
+    optionList, handleSelect, value, label, minWidth,
   } = props;
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
+      <FormControl sx={{ m: 1, minWidth }}>
         <InputLabel id="demo-simple-select-autowidth-label">{label}</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"

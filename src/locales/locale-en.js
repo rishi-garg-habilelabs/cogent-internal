@@ -51,8 +51,10 @@ const en = {
   SAVE_CONTINUE: 'Save and continue',
   // student info
   GENDER: 'Gender',
-  GRADE: 'Grade',
-  SEARCH_SCHOOL: 'Search School',
+  GRADE: 'Academic Grade',
+  TSHIRT: 'T-Shirt Size',
+  SEARCH_SCHOOL: 'Search And Choose Academic School',
+  SORTED_NEAREST: 'Sorted as nearest first',
 };
 
 export default en;

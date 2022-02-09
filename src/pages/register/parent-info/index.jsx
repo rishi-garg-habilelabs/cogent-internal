@@ -21,6 +21,7 @@ function Item(props) {
         fontWeight: '700',
         ...sx,
       }}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...other}
     />
   );
@@ -616,7 +617,7 @@ export default function ParentInfo() {
                       volunteer: event.target.value.trim(),
                     });
                   }}
-                    />
+                />
               </Item>
               <Item>
                 <TextFieldAtom
@@ -643,7 +644,7 @@ export default function ParentInfo() {
                 display: 'flex',
                 flexWrap: 'wrap',
                 alignContent: 'flex-end',
-                justifyContent:'end',
+                justifyContent: 'end',
                 p: 2,
                 m: 1,
                 bgcolor: 'background.paper',
