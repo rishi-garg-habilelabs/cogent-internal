@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, CircularProgress, InputAdornment } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import ButtonAtom from "../../../components/atoms/button";
