@@ -40,9 +40,6 @@ export default function ParentInfo() {
     lastname: Yup.string(t("LASTNAME_REQUIRED")).required(
       t("LASTNAME_REQUIRED")
     ),
-    middlename: Yup.string(t("MIDDLENAME_REQUIRED")).required(
-      t("MIDDLENAME_REQUIRED")
-    ),
     contact: Yup.string(t("CONTACTNO_REQUIRED")).required(
       t("CONTACTNO_REQUIRED")
     ),
@@ -138,7 +135,6 @@ export default function ParentInfo() {
                       title: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.title}
                   errorText={errors.title}
                 />
@@ -156,7 +152,6 @@ export default function ParentInfo() {
                       firstname: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.firstname}
                   errorText={errors.firstname}
                   label={t("FIRSTNAME")}
@@ -176,9 +171,6 @@ export default function ParentInfo() {
                       middlename: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
-                  error={errors?.middlename}
-                  errorText={errors.middlename}
                 />
               </Item>
               <Item>
@@ -195,7 +187,6 @@ export default function ParentInfo() {
                       lastname: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.lastname}
                   errorText={errors.lastname}
                 />
@@ -227,7 +218,6 @@ export default function ParentInfo() {
                       email: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.email}
                   errorText={errors.email}
                 />
@@ -246,7 +236,6 @@ export default function ParentInfo() {
                       contact: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.contact}
                   errorText={errors?.contact}
                 />
@@ -278,7 +267,6 @@ export default function ParentInfo() {
                       profession: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.profession}
                   errorText={errors?.profession}
                 />
@@ -297,7 +285,6 @@ export default function ParentInfo() {
                       company: event.target.value.trim(),
                     });
                   }}
-                  fullWidth
                   error={errors?.company}
                   errorText={errors?.company}
                 />
