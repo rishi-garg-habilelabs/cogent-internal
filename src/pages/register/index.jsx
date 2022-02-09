@@ -1,23 +1,15 @@
-import React, { useState, useContext } from "react";
-import { Card, Grid, CardContent, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import _ from "lodash";
-import style from "./style";
-import TextInput from "../../components/atoms/textfield";
+import React, { useState } from 'react';
+import {
+  Box,
+} from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import style from './style';
 // import { auth } from "../../services/auth";
-import Button from "../../components/atoms/button";
-import { Buttons } from "../../constant";
-import FormBuilder from "../../components/molecules/form";
-import { getUserLocale } from "../../utils/localStorageMethod";
-import { checkFormValid } from "../../utils/validations";
-import { handleSnackBar } from "../../utils/methods";
-import { AuthContext } from "../../contexts/AuthProvider";
-import  RegisterHeader  from "./header";
-import ParentInfo from "./parent-info";
-import { useTranslation } from "react-i18next";
-import constant from "../../constant/config";
-import StudentInfo from "./student-info/student-info";
-const Register = ({ fields }) => {
+import RegisterHeader from './header';
+import ParentInfo from './parent-info';
+import StudentInfo from './student-info';
+
+function Register({ fields }) {
   const [activeStep, setActiveStep] = useState(0);
   const { t } = useTranslation();
   const classes = style();

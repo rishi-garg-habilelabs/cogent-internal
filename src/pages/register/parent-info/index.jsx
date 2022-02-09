@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { Paper } from "@mui/material";
-import { Box, CircularProgress } from "@mui/material";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import TextFieldAtom from "../../../components/atoms/textfield";
-import { Buttons } from "../../../constant";
-import { useTranslation } from "react-i18next";
-import useStyles from "../../../custom-hooks/useStyles";
-import ButtonAtom from "../../../components/atoms/button";
-import styles from "./style";
+import React, { useState } from 'react';
+import { Paper, Box, CircularProgress } from '@mui/material';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
+import TextFieldAtom from '../../../components/atoms/textfield';
+import { Buttons } from '../../../constant';
+import useStyles from '../../../custom-hooks/useStyles';
+import ButtonAtom from '../../../components/atoms/button';
+import styles from './style';
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -18,8 +17,8 @@ function Item(props) {
         p: 1,
         m: 1,
         flexGrow: 1,
-        fontSize: "0.875rem",
-        fontWeight: "700",
+        fontSize: '0.875rem',
+        fontWeight: '700',
         ...sx,
       }}
       {...other}
@@ -30,81 +29,81 @@ function Item(props) {
 export default function ParentInfo() {
   const { t } = useTranslation();
   const validationSchema = Yup.object({
-    parentOneTitle: Yup.string(t("TITLE_REQUIRED")).required(
-      t("TITLE_REQUIRED")
+    parentOneTitle: Yup.string(t('TITLE_REQUIRED')).required(
+      t('TITLE_REQUIRED'),
     ),
-    parentOneEmail: Yup.string(t("EMAIL_REQUIRED"))
-      .email(t("EMAIL_INVALID"))
-      .required(t("EMAIL_REQUIRED")),
-    parentOneFirstName: Yup.string(t("FIRSTNAME_REQUIRED")).required(
-      t("FIRSTNAME_REQUIRED")
+    parentOneEmail: Yup.string(t('EMAIL_REQUIRED'))
+      .email(t('EMAIL_INVALID'))
+      .required(t('EMAIL_REQUIRED')),
+    parentOneFirstName: Yup.string(t('FIRSTNAME_REQUIRED')).required(
+      t('FIRSTNAME_REQUIRED'),
     ),
-    parentOneLastName: Yup.string(t("LASTNAME_REQUIRED")).required(
-      t("LASTNAME_REQUIRED")
+    parentOneLastName: Yup.string(t('LASTNAME_REQUIRED')).required(
+      t('LASTNAME_REQUIRED'),
     ),
-    parentOneContact: Yup.string(t("CONTACTNO_REQUIRED")).required(
-      t("CONTACTNO_REQUIRED")
+    parentOneContact: Yup.string(t('CONTACTNO_REQUIRED')).required(
+      t('CONTACTNO_REQUIRED'),
     ),
-    parentOneProfession: Yup.string(t("PROFESSION_REQUIRED")).required(
-      t("PROFESSION_REQUIRED")
+    parentOneProfession: Yup.string(t('PROFESSION_REQUIRED')).required(
+      t('PROFESSION_REQUIRED'),
     ),
-    parentOneCompany: Yup.string(t("NAMEOFCOMPANY_REQUIRED")).required(
-      t("NAMEOFCOMPANY_REQUIRED")
+    parentOneCompany: Yup.string(t('NAMEOFCOMPANY_REQUIRED')).required(
+      t('NAMEOFCOMPANY_REQUIRED'),
     ),
 
-    parentTwoTitle: Yup.string(t("TITLE_REQUIRED")).required(
-      t("TITLE_REQUIRED")
+    parentTwoTitle: Yup.string(t('TITLE_REQUIRED')).required(
+      t('TITLE_REQUIRED'),
     ),
-    parentTwoEmail: Yup.string(t("EMAIL_REQUIRED"))
-      .email(t("EMAIL_INVALID"))
-      .required(t("EMAIL_REQUIRED")),
-    parentTwoFirstName: Yup.string(t("FIRSTNAME_REQUIRED")).required(
-      t("FIRSTNAME_REQUIRED")
+    parentTwoEmail: Yup.string(t('EMAIL_REQUIRED'))
+      .email(t('EMAIL_INVALID'))
+      .required(t('EMAIL_REQUIRED')),
+    parentTwoFirstName: Yup.string(t('FIRSTNAME_REQUIRED')).required(
+      t('FIRSTNAME_REQUIRED'),
     ),
-    parentTwoLastName: Yup.string(t("LASTNAME_REQUIRED")).required(
-      t("LASTNAME_REQUIRED")
+    parentTwoLastName: Yup.string(t('LASTNAME_REQUIRED')).required(
+      t('LASTNAME_REQUIRED'),
     ),
-    parentTwoContact: Yup.string(t("CONTACTNO_REQUIRED")).required(
-      t("CONTACTNO_REQUIRED")
+    parentTwoContact: Yup.string(t('CONTACTNO_REQUIRED')).required(
+      t('CONTACTNO_REQUIRED'),
     ),
-    parentTwoProfession: Yup.string(t("PROFESSION_REQUIRED")).required(
-      t("PROFESSION_REQUIRED")
+    parentTwoProfession: Yup.string(t('PROFESSION_REQUIRED')).required(
+      t('PROFESSION_REQUIRED'),
     ),
-    parentTwoCompany: Yup.string(t("NAMEOFCOMPANY_REQUIRED")).required(
-      t("NAMEOFCOMPANY_REQUIRED")
+    parentTwoCompany: Yup.string(t('NAMEOFCOMPANY_REQUIRED')).required(
+      t('NAMEOFCOMPANY_REQUIRED'),
     ),
-    
-    homeAddress: Yup.string(t("HOMEADDRESS_REQUIRED")).required(
-      t("HOMEADDRESS_REQUIRED")
+
+    homeAddress: Yup.string(t('HOMEADDRESS_REQUIRED')).required(
+      t('HOMEADDRESS_REQUIRED'),
     ),
-    volunteer: Yup.string(t("VOLUNTEER_REQUIRED")).required(
-      t("VOLUNTEER_REQUIRED")
+    volunteer: Yup.string(t('VOLUNTEER_REQUIRED')).required(
+      t('VOLUNTEER_REQUIRED'),
     ),
-    hearAboutUs: Yup.string(t("HEARABOUT_REQUIRED")).required(
-      t("HEARABOUT_REQUIRED")
+    hearAboutUs: Yup.string(t('HEARABOUT_REQUIRED')).required(
+      t('HEARABOUT_REQUIRED'),
     ),
   });
 
   const [inputFields, setInputFields] = useState({});
   const [showLoader, setShowLoader] = useState(false);
-  const [showMessage, setShowMessage] = useState("");
+  const [showMessage, setShowMessage] = useState('');
 
   const classes = useStyles(styles)();
 
   async function saveData(values, setSubmitting) {
-    console.log("values", values);
+    console.log('values', values);
     if (setSubmitting) setSubmitting(true);
     setShowLoader(true);
-    setShowMessage("Creating New User");
+    setShowMessage('Creating New User');
     setInputFields(inputFields);
   }
   return (
-    <Paper style={{ width: "100%" }}>
+    <Paper style={{ width: '100%' }}>
       <Formik
         enableReinitialize
         initialValues={inputFields}
         onSubmit={(values, { setSubmitting }) => {
-          console.log("valuesvalues", values);
+          console.log('valuesvalues', values);
           saveData(values, setSubmitting);
         }}
         validationSchema={validationSchema}
@@ -112,17 +111,9 @@ export default function ParentInfo() {
         {({
           values,
           errors,
-          dirty,
-          isValid,
-          touched,
-          isSubmitting,
           setValues,
-          setErrors,
-          setFieldTouched,
           handleSubmit,
           handleBlur,
-          handleChange,
-          setSubmitting,
         }) => (
           <form
             onSubmit={handleSubmit}
@@ -133,45 +124,45 @@ export default function ParentInfo() {
             <Box
               className={classes.title}
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "center",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'center',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
-              {t("PARENT_INFO")}
+              {t('PARENT_INFO')}
             </Box>
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 4,
                 fontWeight: 600,
-                bgcolor: "lightblue",
+                bgcolor: 'lightblue',
                 borderRadius: 1,
               }}
             >
-              {t("PARENT_ONE")}
+              {t('PARENT_ONE')}
             </Box>
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("TITLE")}
+                  label={t('TITLE')}
                   id="parentOneTitle"
                   name="parentOneTitle"
                   type="text"
@@ -202,12 +193,12 @@ export default function ParentInfo() {
                   }}
                   error={errors?.parentOneFirstName}
                   errorText={errors.parentOneFirstName}
-                  label={t("FIRSTNAME")}
+                  label={t('FIRSTNAME')}
                 />
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("MIDDLENAME")}
+                  label={t('MIDDLENAME')}
                   id="middlename"
                   name="middlename"
                   type="text"
@@ -223,7 +214,7 @@ export default function ParentInfo() {
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("LASTNAME")}
+                  label={t('LASTNAME')}
                   id="parentOneLastName"
                   name="parentOneLastName"
                   type="text"
@@ -243,18 +234,18 @@ export default function ParentInfo() {
 
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("EMAIL")}
+                  label={t('EMAIL')}
                   id="parentOneEmail"
                   name="parentOneEmail"
                   type="text"
@@ -272,7 +263,7 @@ export default function ParentInfo() {
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("CONTACTNO")}
+                  label={t('CONTACTNO')}
                   id="parentOneContact"
                   name="parentOneContact"
                   type="text"
@@ -292,18 +283,18 @@ export default function ParentInfo() {
 
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("PROFESSION")}
+                  label={t('PROFESSION')}
                   id="parentOneProfession"
                   name="parentOneProfession"
                   type="text"
@@ -321,7 +312,7 @@ export default function ParentInfo() {
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("NAMEOFCOMPANY")}
+                  label={t('NAMEOFCOMPANY')}
                   id="parentOneCompany"
                   name="parentOneCompany"
                   type="text"
@@ -342,32 +333,32 @@ export default function ParentInfo() {
             {/* Parent 2 */}
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 4,
                 fontWeight: 600,
-                bgcolor: "lightblue",
+                bgcolor: 'lightblue',
                 borderRadius: 1,
               }}
             >
-              {t("PARENT_TWO")}
+              {t('PARENT_TWO')}
             </Box>
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("TITLE")}
+                  label={t('TITLE')}
                   id="parentTwoTitle"
                   name="parentTwoTitle"
                   type="text"
@@ -398,12 +389,12 @@ export default function ParentInfo() {
                   }}
                   error={errors?.parentTwoFirstName}
                   errorText={errors.parentTwoFirstName}
-                  label={t("FIRSTNAME")}
+                  label={t('FIRSTNAME')}
                 />
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("MIDDLENAME")}
+                  label={t('MIDDLENAME')}
                   id="parentTwoMiddleName"
                   name="parentTwoMiddleName"
                   type="text"
@@ -419,7 +410,7 @@ export default function ParentInfo() {
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("LASTNAME")}
+                  label={t('LASTNAME')}
                   id="parentTwoLastName"
                   name="parentTwoLastName"
                   type="text"
@@ -439,18 +430,18 @@ export default function ParentInfo() {
 
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("EMAIL")}
+                  label={t('EMAIL')}
                   id="parentTwoEmail"
                   name="parentTwoEmail"
                   type="text"
@@ -468,7 +459,7 @@ export default function ParentInfo() {
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("CONTACTNO")}
+                  label={t('CONTACTNO')}
                   id="parentTwoContact"
                   name="parentTwoContact"
                   type="text"
@@ -488,18 +479,18 @@ export default function ParentInfo() {
 
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("PROFESSION")}
+                  label={t('PROFESSION')}
                   id="parentTwoProfession"
                   name="parentTwoProfession"
                   type="text"
@@ -517,7 +508,7 @@ export default function ParentInfo() {
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("NAMEOFCOMPANY")}
+                  label={t('NAMEOFCOMPANY')}
                   id="parentTwoCompany"
                   name="parentTwoCompany"
                   type="text"
@@ -534,50 +525,37 @@ export default function ParentInfo() {
                 />
               </Item>
             </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
-                p: 1,
-                m: 1,
-                bgcolor: "background.paper",
-                borderRadius: 1,
-              }}
-            ></Box>
-
-            {/* 
+            {/*
           Additional Info */}
 
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 4,
                 fontWeight: 600,
-                bgcolor: "lightblue",
+                bgcolor: 'lightblue',
                 borderRadius: 1,
               }}
             >
-              {t("ADDITIONAL_INFO")}
+              {t('ADDITIONAL_INFO')}
             </Box>
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
               <Item>
                 <TextFieldAtom
-                  label={t("HOMEADDRESS")}
+                  label={t('HOMEADDRESS')}
                   id="homeAddress"
                   name="homeAddress"
                   type="text"
@@ -608,26 +586,25 @@ export default function ParentInfo() {
                   }}
                   error={errors?.apiSuite}
                   errorText={errors.apiSuite}
-                  label={t("APISUITE")}
+                  label={t('APISUITE')}
                 />
               </Item>
-         
             </Box>
 
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-start',
                 p: 1,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
-                  <Item>
+              <Item>
                 <TextFieldAtom
-                  label={t("VOLUNTEER")}
+                  label={t('VOLUNTEER')}
                   id="volunteer"
                   name="volunteer"
                   type="text"
@@ -639,11 +616,11 @@ export default function ParentInfo() {
                       volunteer: event.target.value.trim(),
                     });
                   }}
-                />
+                    />
               </Item>
               <Item>
                 <TextFieldAtom
-                  label={t("HEARABOUT")}
+                  label={t('HEARABOUT')}
                   id="hearAboutUs"
                   name="hearAboutUs"
                   type="text"
@@ -661,27 +638,15 @@ export default function ParentInfo() {
               </Item>
             </Box>
 
-         
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-start",
-                p: 1,
-                m: 1,
-                bgcolor: "background.paper",
-                borderRadius: 1,
-              }}
-            ></Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignContent: "flex-end",
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'flex-end',
                 justifyContent:'end',
                 p: 2,
                 m: 1,
-                bgcolor: "background.paper",
+                bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
             >
@@ -690,24 +655,24 @@ export default function ParentInfo() {
                 className={classes.activeButton}
                 // disabled={isSubmitting || !isValid || !dirty}
                 onClick={handleSubmit}
-                name={t("SAVE_CONTINUE")}
-              ></ButtonAtom>
+                name={t('SAVE_CONTINUE')}
+              />
             </Box>
 
             {showLoader && (
               <Box
                 style={{
-                  width: "100%",
-                  display: "flex",
-                  height: "100vh",
-                  top: "0",
-                  left: "0",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  position: "fixed",
-                  background: "rgba(0,0,0,0.3)",
-                  zIndex: "9",
+                  width: '100%',
+                  display: 'flex',
+                  height: '100vh',
+                  top: '0',
+                  left: '0',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                  position: 'fixed',
+                  background: 'rgba(0,0,0,0.3)',
+                  zIndex: '9',
                 }}
               >
                 <CircularProgress color="inherit" />
