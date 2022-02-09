@@ -14,4 +14,4 @@ const fontType = {
   latoSansSerif: "Lato, sans-serif",
 };
 
-export  {fontWeight, fontType}
+export  default {fontWeight, fontType}

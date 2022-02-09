@@ -17,7 +17,8 @@ const en = {
   SIGN_IN_REGITER_VIDEOS:"Sign in / Register help videos",
   PARENT_INFO:"Parent Info",
   STUDENT_INFO:"Student Info",
-  PAYMENT_INFO:"Payment Info"
+  PAYMENT_INFO:"Payment Info",
+  CONTACT_US:"Contact us"
   };
 
 export default en;

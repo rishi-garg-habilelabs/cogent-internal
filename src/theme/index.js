@@ -1,8 +1,7 @@
 import colors from './colors';
-import {fontWeight,fontType} from './fonts';
+import fonts from './fonts';
 
 export {
   colors,
-  fontWeight,
-  fontType
+  fonts
 };
