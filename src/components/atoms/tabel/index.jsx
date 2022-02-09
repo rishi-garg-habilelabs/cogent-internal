@@ -143,8 +143,11 @@ function DataTabel({
     } else if (['checkbox'].includes(col.type)) {
       cell = (
         <Checkbox
-          onChange={(e) => onCloumnAction(col.key, index,
-            { row, value: e.target.checked })}
+          onChange={(e) => onCloumnAction(
+            col.key,
+            index,
+            { row, value: e.target.checked },
+          )}
           checked={_.get(row, col.field)}
         />
       );

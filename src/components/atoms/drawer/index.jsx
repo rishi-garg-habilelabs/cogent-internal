@@ -152,8 +152,7 @@ function DrawerAtom({ action, children }) {
           </div>
           )}
           <div className={classes.menuDropdownGroup}>
-            <>
-              {action && (
+            {action && (
               <Grid style={{ marginRight: '30px' }}>
                 <MenuAtom
                   label={selectedMenuItem()}
@@ -163,8 +162,7 @@ function DrawerAtom({ action, children }) {
                   menuDropdown
                 />
               </Grid>
-              )}
-            </>
+            )}
             <Grid>
               <MenuAtom
                 label={getLabel(language)}

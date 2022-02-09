@@ -3,7 +3,7 @@ import makeStyles from '@mui/styles/makeStyles';
 const style = makeStyles(() => ({
   formControl: {
     marginLeft: '0px',
-    marginTop:10,
+    marginTop: 10,
     width: '100%',
     '@media (max-width: 767px)': {
       marginRight: 0,

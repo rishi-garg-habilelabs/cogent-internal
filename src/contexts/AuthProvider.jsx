@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useMemo } from 'react';
 
 export const AuthContext = createContext({
   auth: {
@@ -13,7 +13,7 @@ export const AuthContext = createContext({
 });
 
 // eslint-disable-next-line react/prop-types
-const AuthProvider = ({ children }) => {
+function AuthProvider({ children }) {
   const [auth, setAuth] = useState({
     token: localStorage.getItem('token'),
     role: null,
@@ -30,14 +30,15 @@ const AuthProvider = ({ children }) => {
     setLoader(temp);
   };
 
+  const memoValue = useMemo(() => ({
+    auth, login, loader, setLoading, snackbarConfig, setSnackbarConfig,
+  }), []);
+
   return (
-    <AuthContext.Provider value={{
-      auth, login, loader, setLoading, snackbarConfig, setSnackbarConfig,
-    }}
-    >
+    <AuthContext.Provider value={memoValue}>
       {children}
     </AuthContext.Provider>
   );
-};
+}
 
 export default AuthProvider;

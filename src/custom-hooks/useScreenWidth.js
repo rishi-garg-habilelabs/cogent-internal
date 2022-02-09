@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-export default function useScreenWidth () {
-  const [windowScreenWidth, setWindowScreenWidth] = useState(document.body.clientWidth)
+export default function useScreenWidth() {
+  const [windowScreenWidth, setWindowScreenWidth] = useState(document.body.clientWidth);
   useEffect(() => {
-    function handleScreenWidth () {
-      setWindowScreenWidth(document.body.clientWidth)
+    function handleScreenWidth() {
+      setWindowScreenWidth(document.body.clientWidth);
     }
 
-    window.addEventListener('resize', handleScreenWidth)
+    window.addEventListener('resize', handleScreenWidth);
     return () => {
-      window.removeEventListener('resize', handleScreenWidth)
-    }
-  }, [])
-  return windowScreenWidth
+      window.removeEventListener('resize', handleScreenWidth);
+    };
+  }, []);
+  return windowScreenWidth;
 }

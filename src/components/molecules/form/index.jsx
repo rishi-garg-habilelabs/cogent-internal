@@ -73,25 +73,24 @@ function FormBuilder({
     return t('CANCEL');
   };
   return (
-    <>
-      <Box className={classes.leftLoginDetails}>
-        {formFields.map((field, index) => (
-          <Box display="flex" key={field.key} className={`${classes.textField} ${buttonUI ? classes.profileFields : ''}`}>
-            { buttonUI && field.type !== 'textarea'
-              ? (
-                <Typography className={classes.label} key={field.placeholder}>
-                  {t(field.placeholder)}
-                  {field.required && <Typography className={classes.asterik}>*</Typography>}
-                  {field.key === 'certificateFileName' && field.userType === 'therapist' ? (
-                    <Checkbox
-                      onChange={(e) => onDoctorCheckBoxChange(e.target.checked)}
-                      checked={_.get(doctorCheckBox, 'checked')}
-                      style={{ marginTop: '-12px' }}
-                    />
-                  ) : ''}
-                </Typography>
-              ) : ''}
-            {['text', 'number', 'email', 'password', 'tel'].includes(field.type) && (
+    <Box className={classes.leftLoginDetails}>
+      {formFields.map((field, index) => (
+        <Box display="flex" key={field.key} className={`${classes.textField} ${buttonUI ? classes.profileFields : ''}`}>
+          { buttonUI && field.type !== 'textarea'
+            ? (
+              <Typography className={classes.label} key={field.placeholder}>
+                {t(field.placeholder)}
+                {field.required && <Typography className={classes.asterik}>*</Typography>}
+                {field.key === 'certificateFileName' && field.userType === 'therapist' ? (
+                  <Checkbox
+                    onChange={(e) => onDoctorCheckBoxChange(e.target.checked)}
+                    checked={_.get(doctorCheckBox, 'checked')}
+                    style={{ marginTop: '-12px' }}
+                  />
+                ) : ''}
+              </Typography>
+            ) : ''}
+          {['text', 'number', 'email', 'password', 'tel'].includes(field.type) && (
             <TextInput
               label=""
               type={field.type}
@@ -110,8 +109,8 @@ function FormBuilder({
               onChange={(e) => onFieldChange(index, field.key, e.target.value)}
               customFormControlCss={{ width: '100%' }}
             />
-            )}
-            {field.type === 'dropdown' && (
+          )}
+          {field.type === 'dropdown' && (
             <DropDown
               label=""
               name={field.key}
@@ -123,8 +122,8 @@ function FormBuilder({
               handleChange={(e) => onFieldChange(index, field.key, e.target.value)}
               customFormControlCss={{ width: '100%' }}
             />
-            )}
-            {field.type === 'upload' && (
+          )}
+          {field.type === 'upload' && (
             <UploadButton
               label=""
               name={field.key}
@@ -137,58 +136,57 @@ function FormBuilder({
               customFormControlCss={{ width: '100%' }}
               accept={_.get(field, 'fileType', '')}
             />
-            )}
-            { field.type === 'textarea' && (
-              <div className="multilined-input">
-                <CKEditor
-                  editor={ClassicEditor}
-                  data={field.value || ''}
-                  config={{
-                    toolbar: {
-                      removeItems: ['uploadImage'],
-                    },
-                  }}
-                  onChange={(event, editor) => {
-                    const data = editor.getData();
-                    onFieldChange(index, field.key, data);
-                  }}
-                />
-              </div>
-            )}
-          </Box>
-        ))}
-        {adressErrorCheckBox.show ? (
-          <Typography style={{ display: 'flex' }}>
-            <Typography style={{ marginTop: '10px', color: 'red' }}>
-              {t('INVALID_ADDRESS')}
-              {' '}
-              <br />
-              {' '}
-              {t('INVALID_ADDRESS_MSG')}
-            </Typography>
-            <Checkbox
-              onChange={(e) => onAddressCheckBoxChange(e.target.checked)}
-              checked={adressErrorCheckBox.checked}
-              style={{ marginTop: '-12px' }}
+          )}
+          { field.type === 'textarea' && (
+          <div className="multilined-input">
+            <CKEditor
+              editor={ClassicEditor}
+              data={field.value || ''}
+              config={{
+                toolbar: {
+                  removeItems: ['uploadImage'],
+                },
+              }}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                onFieldChange(index, field.key, data);
+              }}
             />
-          </Typography>
-        ) : ''}
-        <Box className={profileBtn()} display="flex" style={{ marginTop: addMargin ? 40 : 0 }}>
-          <Box className={classes.buttonBox} />
-          { flag ? null
-            : (
-              <>
-                <Box mr={1} className={profileButtonUi()}>
-                  <ButtonAtom label={saveBtn()} onClick={() => onButtonAction('save')} customButtonCss={{ width: '100%', background: '#7cc4a3' }} />
-                </Box>
-                <Box className={profileButtonUi()}>
-                  <ButtonAtom label={cancelBtn()} onClick={() => onButtonAction('cancel')} customButtonCss={{ width: '100%', background: '#1a2732' }} />
-                </Box>
-              </>
-            )}
+          </div>
+          )}
         </Box>
+      ))}
+      {adressErrorCheckBox.show ? (
+        <Typography style={{ display: 'flex' }}>
+          <Typography style={{ marginTop: '10px', color: 'red' }}>
+            {t('INVALID_ADDRESS')}
+            {' '}
+            <br />
+            {' '}
+            {t('INVALID_ADDRESS_MSG')}
+          </Typography>
+          <Checkbox
+            onChange={(e) => onAddressCheckBoxChange(e.target.checked)}
+            checked={adressErrorCheckBox.checked}
+            style={{ marginTop: '-12px' }}
+          />
+        </Typography>
+      ) : ''}
+      <Box className={profileBtn()} display="flex" style={{ marginTop: addMargin ? 40 : 0 }}>
+        <Box className={classes.buttonBox} />
+        { flag ? null
+          : (
+            <>
+              <Box mr={1} className={profileButtonUi()}>
+                <ButtonAtom label={saveBtn()} onClick={() => onButtonAction('save')} customButtonCss={{ width: '100%', background: '#7cc4a3' }} />
+              </Box>
+              <Box className={profileButtonUi()}>
+                <ButtonAtom label={cancelBtn()} onClick={() => onButtonAction('cancel')} customButtonCss={{ width: '100%', background: '#1a2732' }} />
+              </Box>
+            </>
+          )}
       </Box>
-    </>
+    </Box>
   );
 }
 
