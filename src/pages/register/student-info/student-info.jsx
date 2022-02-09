@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Box, CircularProgress } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { Paper } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import ButtonAtom from "../../../components/atoms/button";
 import TextFieldAtom from "../../../components/atoms/textfield";
 import { Buttons } from "../../../constant";
-import { useTranslation } from "react-i18next";
-import { Paper } from "@mui/material";
 import useStyles from "../../../custom-hooks/useStyles";
 import styles from "./style";
 
