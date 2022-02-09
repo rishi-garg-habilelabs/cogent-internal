@@ -18,7 +18,17 @@ const en = {
   PARENT_INFO:"Parent Info",
   STUDENT_INFO:"Student Info",
   PAYMENT_INFO:"Payment Info",
-  CONTACT_US:"Contact us"
+  CONTACT_US:"Contact us",
+
+  // register
+  TITLE:"Title",
+  FIRSTNAME:"First Name",
+  LASTNAME:"Last Name",
+  MIDDLENAME:"Middle Name",
+  EMAIL:"Email",
+  CONTACTNO:"Contact No.",
+  PROFESSION:"Profession",
+  NAMEOFCOMPANY:"Name of company"
   };
 
 export default en;

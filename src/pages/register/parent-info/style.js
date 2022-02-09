@@ -3,10 +3,8 @@ import makeStyles from "@mui/styles/makeStyles";
 import {colors} from '../../../theme'
 const parentinfostyle = makeStyles(() => ({
   root: {
-    flexGrow: 1,
-    justifyContent: "center",
-    width: "65%",
     marginTop: 20,
+    width:'100% important'
   },
   title: {
     textAlign: "center",
