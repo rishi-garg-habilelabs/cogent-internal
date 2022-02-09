@@ -1,80 +1,338 @@
 import React, { useState } from "react";
-import { Card, Grid, CardContent } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import _ from "lodash";
-import style from "./style";
-import Button from "../../../components/atoms/button";
+import { Box, CircularProgress } from "@mui/material";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import ButtonAtom from "../../../components/atoms/button";
+import TextFieldAtom from "../../../components/atoms/textfield";
 import { Buttons } from "../../../constant";
-import FormBuilder from "../../../components/molecules/form";
-import { checkFormValid } from "../../../utils/validations";
 import { useTranslation } from "react-i18next";
-const StudentInfo = ({ fields }) => {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-  const classes = style();
-  const [formFields, setFormFields] = useState(fields);
-  const [adressErrorCheckBox, setAdressErrorCheckBox] = useState({
-    show: false,
-    checked: false,
-  });
-  const onButtonAction = async (buttonKey) => {
-    if (buttonKey === "save") {
-      const result = checkFormValid(formFields);
-      setFormFields(result.fields);
-    } else if (buttonKey === "cancel") {
-      navigate("/login");
-    }
-  };
+import { Paper } from "@mui/material";
+import useStyles from "../../../custom-hooks/useStyles";
+import styles from "./style";
 
-  const onFieldChange = (index, key, value) => {
-    const updatedFormFields = [...formFields];
-    updatedFormFields[index].value = value;
-    setFormFields(updatedFormFields);
-  };
-
+function Item(props) {
+  const { sx, ...other } = props;
   return (
-    <Card>
-      <CardContent>
-        <Grid
-          container
-          className={classes.root}
-          spacing="4"
-          justifyContent="center"
-        >
-          <Grid container spacing="4" justifyContent="flex-end">
-            <Grid item className={classes.title} xs={12}>
-              {t("STUDENT_INFO")}
-            </Grid>
-            <Grid item xs={8}>
-              <FormBuilder
-                formFields={formFields}
-                onButtonAction={onButtonAction}
-                onFieldChange={onFieldChange}
-                adressErrorCheckBox={adressErrorCheckBox}
-                onAddressCheckBoxChange={(con) =>
-                  setAdressErrorCheckBox({
-                    ...adressErrorCheckBox,
-                    checked: con,
-                  })
-                }
-              />
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            className={classes.button}
-            spacing="4"
-            justifyContent="flex-end"
-          >
-            <Grid item>
-              <Button name="Save" btntype={Buttons.PRIMARY} onClick="" />
-            </Grid>
-          </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+    <Box
+      sx={{
+        p: 1,
+        m: 1,
+        flexGrow: 1,
+        fontSize: "0.875rem",
+        fontWeight: "700",
+        ...sx,
+      }}
+      {...other}
+    />
   );
-};
+}
 
-export default StudentInfo;
+export default function StudentInfo() {
+  const { t } = useTranslation();
+  const validationSchema = Yup.object({
+    title: Yup.string(t("TITLE_REQUIRED")).required(t("TITLE_REQUIRED")),
+    email: Yup.string(t("EMAIL_REQUIRED"))
+      .email(t("EMAIL_INVALID"))
+      .required(t("EMAIL_REQUIRED")),
+    firstname: Yup.string(t("FIRSTNAME_REQUIRED")).required(
+      t("FIRSTNAME_REQUIRED")
+    ),
+    lastname: Yup.string(t("LASTNAME_REQUIRED")).required(
+      t("LASTNAME_REQUIRED")
+    ),
+    contact: Yup.string(t("CONTACTNO_REQUIRED")).required(
+      t("CONTACTNO_REQUIRED")
+    ),
+    profession: Yup.string(t("PROFESSION_REQUIRED")).required(
+      t("PROFESSION_REQUIRED")
+    ),
+    company: Yup.string(t("NAMEOFCOMPANY_REQUIRED")).required(
+      t("NAMEOFCOMPANY_REQUIRED")
+    ),
+  });
+
+  const [inputFields, setInputFields] = useState({});
+  const [showLoader, setShowLoader] = useState(false);
+  const [showMessage, setShowMessage] = useState("");
+
+  const classes = useStyles(styles)();
+
+  async function saveData(values, setSubmitting) {
+    if (setSubmitting) setSubmitting(true);
+    setShowLoader(true);
+    setShowMessage("Creating New Student");
+    setInputFields(inputFields);
+  }
+  return (
+    <Paper style={{ width: "100%" }}>
+      <Formik
+        enableReinitialize
+        initialValues={inputFields}
+        onSubmit={(values, { setSubmitting }) => {
+          console.log("valuesvalues", values);
+          saveData(values, setSubmitting);
+        }}
+        validationSchema={validationSchema}
+      >
+        {({
+          values,
+          errors,
+          dirty,
+          isValid,
+          touched,
+          isSubmitting,
+          setValues,
+          setErrors,
+          setFieldTouched,
+          handleSubmit,
+          handleBlur,
+          handleChange,
+          setSubmitting,
+        }) => (
+          <form
+            onSubmit={handleSubmit}
+            name="tenantUserForm"
+            noValidate
+            autoComplete="off"
+          >
+            <Box
+              className={classes.title}
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "center",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+            >
+              {t("STUDENT_INFO")}
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "flex-start",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+            >
+              <Item>
+                <TextFieldAtom
+                  label={t("TITLE")}
+                  id="title"
+                  name="title"
+                  type="text"
+                  value={values.title}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      title: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.title}
+                  errorText={errors.title}
+                />
+              </Item>
+              <Item>
+                <TextFieldAtom
+                  id="firstname"
+                  name="firstname"
+                  type="text"
+                  value={values.firstname}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      firstname: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.firstname}
+                  errorText={errors.firstname}
+                  label={t("FIRSTNAME")}
+                />
+              </Item>
+              <Item>
+                <TextFieldAtom
+                  label={t("MIDDLENAME")}
+                  id="middlename"
+                  name="middlename"
+                  type="text"
+                  value={values.middlename}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      middlename: event.target.value.trim(),
+                    });
+                  }}
+                />
+              </Item>
+              <Item>
+                <TextFieldAtom
+                  label={t("LASTNAME")}
+                  id="lastname"
+                  name="lastname"
+                  type="text"
+                  value={values.lastname}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      lastname: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.lastname}
+                  errorText={errors.lastname}
+                />
+              </Item>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "flex-start",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+            >
+              <Item>
+                <TextFieldAtom
+                  label={t("EMAIL")}
+                  id="email"
+                  name="email"
+                  type="text"
+                  value={values.email}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      email: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.email}
+                  errorText={errors.email}
+                />
+              </Item>
+              <Item>
+                <TextFieldAtom
+                  label={t("CONTACTNO")}
+                  id="contact"
+                  name="contact"
+                  type="text"
+                  value={values.contact}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      contact: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.contact}
+                  errorText={errors?.contact}
+                />
+              </Item>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "flex-start",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+            >
+              <Item>
+                <TextFieldAtom
+                  label={t("PROFESSION")}
+                  id="profession"
+                  name="profession"
+                  type="text"
+                  value={values.profession}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      profession: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.profession}
+                  errorText={errors?.profession}
+                />
+              </Item>
+              <Item>
+                <TextFieldAtom
+                  label={t("NAMEOFCOMPANY")}
+                  id="company"
+                  name="company"
+                  type="text"
+                  value={values.company}
+                  onBlur={handleBlur}
+                  onChange={(event) => {
+                    setValues({
+                      ...values,
+                      company: event.target.value.trim(),
+                    });
+                  }}
+                  error={errors?.company}
+                  errorText={errors?.company}
+                />
+              </Item>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "flex-start",
+                p: 1,
+                m: 1,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+              }}
+            >
+              <ButtonAtom
+                btntype={Buttons.PRIMARY}
+                className={classes.activeButton}
+                // disabled={isSubmitting || !isValid || !dirty}
+                onClick={handleSubmit}
+                name={"SAVE"}
+              ></ButtonAtom>
+            </Box>
+
+            {showLoader && (
+              <Box
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  height: "100vh",
+                  top: "0",
+                  left: "0",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  position: "fixed",
+                  background: "rgba(0,0,0,0.3)",
+                  zIndex: "9",
+                }}
+              >
+                <CircularProgress color="inherit" />
+                <h5>{showMessage}</h5>
+              </Box>
+            )}
+          </form>
+        )}
+      </Formik>
+    </Paper>
+  );
+}

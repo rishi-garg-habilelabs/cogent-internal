@@ -1,6 +1,6 @@
 import makeStyles from "@mui/styles/makeStyles";
 
-import {colors} from '../../../theme'
+import {colors, fonts} from '../../../theme'
 const parentinfostyle = makeStyles(() => ({
   inputError:{
     color:'red'

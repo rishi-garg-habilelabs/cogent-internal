@@ -37,7 +37,18 @@ const en = {
   EMAIL_REQUIRED:"Email Required",
   CONTACTNO_REQUIRED:"Contact No. Required",
   PROFESSION_REQUIRED:"Profession Required",
-  NAMEOFCOMPANY_REQUIRED:"Name of company Required"
+  NAMEOFCOMPANY_REQUIRED:"Name of company Required",
+  HOMEADDRESS_REQUIRED:"Home Address Required",
+  VOLUNTEER_REQUIRED:"Home Address Required",
+  HEARABOUT_REQUIRED:"Hear About Required",
+  PARENT_ONE:"Parent 1",
+  PARENT_TWO:"Parent 2",
+  ADDITIONAL_INFO:"Addional Info",
+  HOMEADDRESS:"Home Address",
+  APISUITE:"Api/Suite",
+  VOLUNTEER:"I Would like to volunteer for",
+  HEARABOUT:"How does you hear about us?",
+  SAVE_CONTINUE:"Save and continue"
   };
 
 export default en;
