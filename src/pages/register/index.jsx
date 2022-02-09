@@ -12,7 +12,7 @@ import { getUserLocale } from "../../utils/localStorageMethod";
 import { checkFormValid } from "../../utils/validations";
 import { handleSnackBar } from "../../utils/methods";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { RegisterHeader } from "../../components/molecules/header";
+import  RegisterHeader  from "./header";
 import ParentInfo from "./parent-info";
 import { useTranslation } from "react-i18next";
 import constant from "../../constant/config";
