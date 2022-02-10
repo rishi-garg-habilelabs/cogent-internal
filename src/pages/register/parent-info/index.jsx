@@ -86,6 +86,24 @@ export default function ParentInfo() {
   //   </Grid>
   // );
 
+  const Item = (props) => {
+    const { sx, ...other } = props;
+    return (
+      <Box
+        sx={{
+          p: 1,
+          m: 1,
+          flexGrow: 1,
+          fontSize: '0.875rem',
+          fontWeight: '700',
+          ...sx,
+        }}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...other}
+      />
+    );
+  };
+  
   async function saveData(values, setSubmitting) {
     console.log('values', values);
     if (setSubmitting) setSubmitting(true);
