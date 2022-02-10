@@ -58,6 +58,13 @@ const en = {
   CLASSLEVEL: 'Class Level',
   ACADEMICYEAR: 'Academic Year',
   DOB: 'Date Of Birth',
+  DOB_REQUIRED: 'Date Of Birth Required',
+  GENDER_REQUIRED: 'Gender Required',
+  TSHIRT_REQUIRED: 'Tshirt Required',
+  GRADE_REQUIRED: 'Academic Grade Required',
+  SORTED_REQUIRED: 'Sorted Nearest Required',
+  ACADEMICYEAR_REQUIRED: 'Academic Year Required',
+  CLASSLEVEL_REQUIRED: 'Class Level Required',
 };
 
 export default en;

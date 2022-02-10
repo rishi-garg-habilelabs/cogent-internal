@@ -1,46 +1,50 @@
 const selectBoxStyle = () => ({
-    formControl: {
-        minWidth: 300,
-        '& li:hover': {
-            backgroundColor: '#303039',
-        },
-        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-            border: "1px solid #484850",
-            borderRadius: "5px 5px 0 0"
-        },
-        '& .MuiInputBase-root': {
-            '&:hover': {
-                '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'solid 1px ' ,
-                }
-            }
-        }
+  formControl: {
+    padding: 9,
+    '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+      border: '1px solid #484850',
+      borderRadius: '5px 5px 0 0',
+      height: 52,
     },
-    selectEmpty: {
-        marginTop: 6,
+    '&:focus': {
+      borderRadius: 4,
+      borderColor: 'tranparent',
+      borderBottom: '1px solid',
+      background: 'none',
     },
-    paper: {
-        background: 'black',
-        color: 'red',
+    width: '100%',
+    '@media (max-width: 767px)': {
+      marginRight: 0,
     },
-
-    input: {
-        color:'red',
-        backgroundColor: 'green',
-        border: 'solid 1px ' ,
-        padding: 9,
-        '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-            border: '1px solid #484850',
-            borderRadius: '5px 5px 0 0',
+    '& .MuiOutlinedInput-root': {
+      background: '#fff',
+      height: 52,
+      padding: 5,
+      '& input': {
+        padding: 14,
+        fontSize: 16,
+        letterSpacing: 2,
+        color: '#696969 !important',
+        '&::placeholder': {
+          textTransform: 'uppercase',
+          color: '#69696980 !important',
+          opacity: 1,
+          fontWeight: '300',
+          letterSpacing: 2,
         },
-        '&:focus': {
-            borderRadius: 4,
-            borderColor: 'tranparent',
-            borderBottom: '1px solid',
-            // boxShadow: "0 0 0 0.1rem" +  theme.palette.primary.contrastText,
-            background: 'none',
-        },
+      },
     },
+    '& .MuiFormHelperText-contained': {
+      margin: 0,
+    },
+  },
+  selectEmpty: {
+    marginTop: 6,
+  },
+  paper: {
+    background: 'black',
+    color: 'red',
+  },
 });
 
 export default selectBoxStyle;

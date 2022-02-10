@@ -94,7 +94,7 @@ export default function ParentInfo() {
       onChange={(event) => {
         setValues({
           ...values,
-          parentOneTitle: event.target.value.trim(),
+          id: event.target.value.trim(),
         });
       }}
       error={error}
