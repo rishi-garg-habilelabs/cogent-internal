@@ -57,6 +57,7 @@ const en = {
   SORTED_NEAREST: 'Sorted as nearest first',
   CLASSLEVEL: 'Class Level',
   ACADEMICYEAR: 'Academic Year',
+  DOB: 'Date Of Birth',
 };
 
 export default en;

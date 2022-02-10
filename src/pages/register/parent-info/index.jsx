@@ -1,7 +1,7 @@
 /* eslint-disable no-multi-spaces */
 import React, { useState } from 'react';
 import {
-  Paper, Box, CircularProgress, Grid, Typography,
+  Paper, Box, CircularProgress, Grid,
 } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -75,16 +75,16 @@ export default function ParentInfo() {
   const [showLoader, setShowLoader] = useState(false);
   const [showMessage, setShowMessage] = useState('');
 
-   const classes = styles();
-   const setTitle = (title) => (
-    <Grid container className={classes.heading}>
-      <Grid item xs={12}>
-        <Typography component="div" gutterBottom>
-          {title}
-        </Typography>
-      </Grid>
-    </Grid>
-  );
+  const classes = styles();
+  // const setTitle = (title) => (
+  //   <Grid container className={classes.heading}>
+  //     <Grid item xs={12}>
+  //       <Typography component="div" gutterBottom>
+  //         {title}
+  //       </Typography>
+  //     </Grid>
+  //   </Grid>
+  // );
 
   async function saveData(values, setSubmitting) {
     console.log('values', values);
@@ -266,26 +266,26 @@ export default function ParentInfo() {
               </Item>
             </Box>
 
-              <Grid container spacing={2} justifyContent="end">
-                <Grid item>
-                  <ButtonAtom
-                    btntype={Buttons.PRIMARY}
-                    className={classes.activeButton}
+            <Grid container spacing={2} justifyContent="end">
+              <Grid item>
+                <ButtonAtom
+                  btntype={Buttons.PRIMARY}
+                  className={classes.activeButton}
                 // disabled={isSubmitting || !isValid || !dirty}
-                    onClick={handleSubmit}
-                    name={t('SAVE_CONTINUE')}
-                  />
-                </Grid>
+                  onClick={handleSubmit}
+                  name={t('SAVE_CONTINUE')}
+                />
               </Grid>
+            </Grid>
 
-              {showLoader && (
+            {showLoader && (
               <Box
                 style={loaderStyle}
               >
                 <CircularProgress color="inherit" />
                 <h5>{showMessage}</h5>
               </Box>
-              )}
+            )}
           </form>
         )}
       </Formik>

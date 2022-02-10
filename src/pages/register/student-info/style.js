@@ -1,8 +1,10 @@
-import makeStyles from '@mui/styles/makeStyles';
-
-const studentinfostyle = makeStyles(() => ({
+const studentinfostyle = (() => ({
   gridContainer: {
     padding: '3% !important',
+  },
+  datePicker: {
+    marginTop: '1%',
+    width: '90%',
   },
   title: {
     textAlign: 'center',
