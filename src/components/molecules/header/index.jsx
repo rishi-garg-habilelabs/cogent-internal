@@ -5,7 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import clsx from 'clsx';
-import styles from './commonheader/style';
+import styles from './style';
 import useStyles from '../../../custom-hooks/useStyles';
 import useSideBarOpen from '../../../custom-hooks/useSideBarOpen';
 import useUserLanguage from '../../../custom-hooks/useUserLanguage';
