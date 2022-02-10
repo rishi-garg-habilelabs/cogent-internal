@@ -20,9 +20,6 @@ export default function SelectAutoWidth(props) {
           onChange={handleSelect}
           label={label}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {optionList ? (
             // eslint-disable-next-line array-callback-return
             optionList.map((i) => {
