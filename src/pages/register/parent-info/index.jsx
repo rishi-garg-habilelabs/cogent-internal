@@ -114,7 +114,6 @@ export default function ParentInfo() {
   );
 
   async function saveData(values, setSubmitting) {
-    console.log('values', values);
     if (setSubmitting) setSubmitting(true);
     setShowLoader(true);
     setShowMessage('Creating New User');
@@ -126,7 +125,6 @@ export default function ParentInfo() {
         enableReinitialize
         initialValues={inputFields}
         onSubmit={(values, { setSubmitting }) => {
-          console.log('valuesvalues', values);
           saveData(values, setSubmitting);
         }}
         validationSchema={validationSchema}
