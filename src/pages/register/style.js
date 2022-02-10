@@ -1,6 +1,6 @@
 import makeStyles from '@mui/styles/makeStyles';
 
-import { colors } from '../../theme';
+import { colors, fonts } from '../../theme';
 
 const style = makeStyles(() => ({
   root: {
@@ -8,6 +8,18 @@ const style = makeStyles(() => ({
     justifyContent: 'center',
     width: '100% !important',
     marginTop: 20,
+  },
+  divWrapper: {
+    background: 'white',
+    width: '100% !important',
+  },
+  headerTitle: {
+    fontWeight: fonts.fontWeight.bold,
+    fontSize: 20,
+    color: colors.primary,
+    marginLeft: '3%',
+    width: '15% !important',
+    borderBottom: `4px solid${colors.primary}`,
   },
   title: {
     textAlign: 'center',

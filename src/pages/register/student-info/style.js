@@ -1,11 +1,8 @@
 import makeStyles from '@mui/styles/makeStyles';
 
 const studentinfostyle = makeStyles(() => ({
-  root: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    width: '65%',
-    marginTop: 20,
+  gridContainer: {
+    padding: '3% !important',
   },
   title: {
     textAlign: 'center',

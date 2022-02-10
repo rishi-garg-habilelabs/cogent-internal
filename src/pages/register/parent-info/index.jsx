@@ -123,20 +123,6 @@ export default function ParentInfo() {
             autoComplete="off"
           >
             <Box
-              className={classes.title}
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'center',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              {t('PARENT_INFO')}
-            </Box>
-            <Box
               sx={{
                 display: 'flex',
                 flexWrap: 'wrap',

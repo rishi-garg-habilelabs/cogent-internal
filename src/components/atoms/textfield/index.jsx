@@ -8,12 +8,13 @@ import style from './style';
 function TextFieldAtom({
   label, name, value, onChange, InputProps, multiline, rows, onBlur,
   customFormControlCss, type, required, variant, placeholder, error,
-  errorText, disable, onKeyUp, title,
+  errorText, disable, onKeyUp, title, minWidth,
 }) {
   const classes = style();
   const { t } = useTranslation();
   return (
-    <FormControl className={classes.formControl} style={customFormControlCss}>
+    // eslint-disable-next-line max-len
+    <FormControl sx={{ m: 1, minWidth }} className={classes.formControl} style={customFormControlCss}>
       <TextField
         id={name}
         value={value}

@@ -23,13 +23,16 @@ function Register({ fields }) {
     setActiveStep(index);
   };
   return (
-    <div style={{ width: '100%' }}>
+    <div className={classes.divWrapper}>
       <Box className={classes.header} mt={2}>
         <RegisterHeader
           activeStep={activeStep}
           steps={steps}
           handleStepper={handleStepper}
         />
+      </Box>
+      <Box className={classes.headerTitle} mt={2}>
+        {activeStep === 0 ? t('PARENT_INFO') : t('STUDENT_INFO')}
       </Box>
       <Box>
         {activeStep === 0 ? (
