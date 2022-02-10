@@ -74,6 +74,34 @@ export default function ParentInfo() {
   const [inputFields, setInputFields] = useState({});
   const [showLoader, setShowLoader] = useState(false);
   const [showMessage, setShowMessage] = useState('');
+  const textField = (
+    label,
+    id,
+    type,
+    setValues,
+    value,
+    handleBlur,
+    values,
+    error,
+    errorText,
+  ) => (
+    <TextFieldAtom
+      label={label}
+      id={id}
+      name={id}
+      type={type}
+      value={value}
+      onBlur={handleBlur}
+      onChange={(event) => {
+        setValues({
+          ...values,
+          parentOneTitle: event.target.value.trim(),
+        });
+      }}
+      error={error}
+      errorText={errorText}
+    />
+  );
 
   const classes = styles();
   // const setTitle = (title) => (
@@ -110,36 +138,7 @@ export default function ParentInfo() {
     setShowLoader(true);
     setShowMessage('Creating New User');
     setInputFields(inputFields);
-  }
-
-  const textField = (
-    label,
-    id,
-    type,
-    setValues,
-    value,
-    handleBlur,
-    values,
-    error,
-    errorText,
-  ) => (
-    <TextFieldAtom
-      label={label}
-      id={id}
-      name={id}
-      type={type}
-      value={value}
-      onBlur={handleBlur}
-      onChange={(event) => {
-        setValues({
-          ...values,
-          parentOneTitle: event.target.value.trim(),
-        });
-      }}
-      error={error}
-      errorText={errorText}
-    />
-  );
+  };
 
   return (
     <Paper style={{ width: '100%' }}>
@@ -165,124 +164,100 @@ export default function ParentInfo() {
             noValidate
             autoComplete="off"
           >
-            <Box
-              className={classes.activeButton}
-              sx={headingStyle}
-            >
-              {t('PARENT_ONE')}
-            </Box>
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('TITLE'), 'parentOneTitle', 'text', setValues, values.parentOneTitle, handleBlur, values, errors?.parentOneTitle, errors.parentOneTitle)}
-              </Item>
-              <Item>
-                {textField(t('FIRSTNAME'), 'parentOneFirstName', 'text', setValues, values.parentOneFirstName, handleBlur, values, errors?.parentOneFirstName, errors.parentOneFirstName)}
-              </Item>
-              <Item>
-                {textField(t('MIDDLENAME'), 'middlename', 'text', setValues, values.middlename, handleBlur, values, '', '')}
-              </Item>
-              <Item>
-                {textField(t('LASTNAME'), 'parentOneLastName', 'text', setValues, values.parentOneLastName, handleBlur, values, errors?.parentOneLastName, errors.parentOneLastName)}
-              </Item>
-            </Box>
+            <Box sx={{ flexGrow: 1, padding: '3%' }}>
+              {setTitle(t('PARENT_ONE'))}
+              <Grid container spacing={2}>
+                <Grid item xs={3}>
+                  {textField(t('TITLE'), 'parentOneTitle', 'text', setValues, values.parentOneTitle, handleBlur, values, errors?.parentOneTitle, errors.parentOneTitle)}
+                </Grid>
+                <Grid item xs={3}>
+                  {textField(t('FIRSTNAME'), 'parentOneFirstName', 'text', setValues, values.parentOneFirstName, handleBlur, values, errors?.parentOneFirstName, errors.parentOneFirstName)}
+                </Grid>
+                <Grid item xs={3}>
+                  {textField(t('MIDDLENAME'), 'middlename', 'text', setValues, values.middlename, handleBlur, values, '', '')}
+                </Grid>
+                <Grid item xs={3}>
+                  {textField(t('LASTNAME'), 'parentOneLastName', 'text', setValues, values.parentOneLastName, handleBlur, values, errors?.parentOneLastName, errors.parentOneLastName)}
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('EMAIL'), 'parentOneEmail', 'text', setValues, values.parentOneEmail, handleBlur, values, errors?.parentOneEmail, errors.parentOneEmail)}
-              </Item>
-              <Item>
-                {textField(t('CONTACTNO'), 'parentOneContact', 'text', setValues, values.parentOneContact, handleBlur, values, errors?.parentOneContact, errors.parentOneContact)}
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {textField(t('EMAIL'), 'parentOneEmail', 'text', setValues, values.parentOneEmail, handleBlur, values, errors?.parentOneEmail, errors.parentOneEmail)}
+                </Grid>
+                <Grid item xs={6}>
+                  {textField(t('CONTACTNO'), 'parentOneContact', 'text', setValues, values.parentOneContact, handleBlur, values, errors?.parentOneContact, errors.parentOneContact)}
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('PROFESSION'), 'parentOneProfession', 'text', setValues, values.parentOneProfession, handleBlur, values, errors?.parentOneProfession, errors.parentOneProfession)}
-              </Item>
-              <Item>
-                {textField(t('NAMEOFCOMPANY'), 'parentOneCompany', 'text', setValues, values.parentOneCompany, handleBlur, values, errors?.parentOneCompany, errors.parentOneCompany)}
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {textField(t('PROFESSION'), 'parentOneProfession', 'text', setValues, values.parentOneProfession, handleBlur, values, errors?.parentOneProfession, errors.parentOneProfession)}
+                </Grid>
+                <Grid item xs={6}>
+                  {textField(t('NAMEOFCOMPANY'), 'parentOneCompany', 'text', setValues, values.parentOneCompany, handleBlur, values, errors?.parentOneCompany, errors.parentOneCompany)}
+                </Grid>
+              </Grid>
 
-            {/* Parent 2 */}
-            <Box
-              sx={headingStyle}
-            >
-              {t('PARENT_TWO')}
-            </Box>
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('TITLE'), 'parentTwoTitle', 'text', setValues, values.parentTwoTitle, handleBlur, values, errors?.parentTwoTitle, errors.parentTwoTitle)}
-              </Item>
-              <Item>
-                {textField(t('FIRSTNAME'), 'parentTwoFirstName', 'text', setValues, values.parentTwoFirstName, handleBlur, values, errors?.parentTwoFirstName, errors.parentTwoFirstName)}
-              </Item>
-              <Item>
-                {textField(t('MIDDLENAME'), 'parentTwoMiddleName', 'text', setValues, values.parentTwoMiddleName, handleBlur, values, errors?.parentTwoMiddleName, errors.parentTwoMiddleName)}
-              </Item>
-              <Item>
-                {textField(t('LASTNAME'), 'parentTwoLastName', 'text', setValues, values.parentTwoLastName, handleBlur, values, errors?.parentTwoLastName, errors.parentTwoLastName)}
-              </Item>
-            </Box>
+              {/* Parent 2 */}
+              {setTitle(t('PARENT_TWO'))}
+              <Grid container spacing={2}>
+                <Grid item xs={3}>
+                  {textField(t('TITLE'), 'parentTwoTitle', 'text', setValues, values.parentTwoTitle, handleBlur, values, errors?.parentTwoTitle, errors.parentTwoTitle)}
+                </Grid>
+                <Grid item xs={3}>
 
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('EMAIL'), 'parentTwoEmail', 'text', setValues, values.parentTwoEmail, handleBlur, values, errors?.parentTwoEmail, errors.parentTwoEmail)}
-              </Item>
-              <Item>
-                {textField(t('CONTACTNO'), 'parentTwoContact', 'text', setValues, values.parentTwoContact, handleBlur, values, errors?.parentTwoContact, errors.parentTwoContact)}
-              </Item>
-            </Box>
+                  {textField(t('FIRSTNAME'), 'parentTwoFirstName', 'text', setValues, values.parentTwoFirstName, handleBlur, values, errors?.parentTwoFirstName, errors.parentTwoFirstName)}
 
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('PROFESSION'), 'parentTwoProfession', 'text', setValues, values.parentTwoProfession, handleBlur, values, errors?.parentTwoProfession, errors.parentTwoProfession)}
-              </Item>
-              <Item>
-                {textField(t('NAMEOFCOMPANY'), 'parentTwoCompany', 'text', setValues, values.parentTwoCompany, handleBlur, values, errors?.parentTwoCompany, errors.parentTwoCompany)}
-              </Item>
-            </Box>
-            {/*
+                </Grid>
+                <Grid item xs={3}>
+                  {textField(t('MIDDLENAME'), 'parentTwoMiddleName', 'text', setValues, values.parentTwoMiddleName, handleBlur, values, errors?.parentTwoMiddleName, errors.parentTwoMiddleName)}
+                </Grid>
+                <Grid item xs={3}>
+                  {textField(t('LASTNAME'), 'parentTwoLastName', 'text', setValues, values.parentTwoLastName, handleBlur, values, errors?.parentTwoLastName, errors.parentTwoLastName)}
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {textField(t('EMAIL'), 'parentTwoEmail', 'text', setValues, values.parentTwoEmail, handleBlur, values, errors?.parentTwoEmail, errors.parentTwoEmail)}
+                </Grid>
+                <Grid item xs={6}>
+                  {textField(t('CONTACTNO'), 'parentTwoContact', 'text', setValues, values.parentTwoContact, handleBlur, values, errors?.parentTwoContact, errors.parentTwoContact)}
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {textField(t('PROFESSION'), 'parentTwoProfession', 'text', setValues, values.parentTwoProfession, handleBlur, values, errors?.parentTwoProfession, errors.parentTwoProfession)}
+                </Grid>
+                <Grid item xs={6}>
+                  {textField(t('NAMEOFCOMPANY'), 'parentTwoCompany', 'text', setValues, values.parentTwoCompany, handleBlur, values, errors?.parentTwoCompany, errors.parentTwoCompany)}
+
+                </Grid>
+              </Grid>
+              {/*
           Additional Info */}
 
-            <Box
-              sx={headingStyle}
-            >
-              {t('ADDITIONAL_INFO')}
-            </Box>
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('HOMEADDRESS'), 'homeAddress', 'text', setValues, values.homeAddress, handleBlur, values, errors?.homeAddress, errors.homeAddress)}
-              </Item>
-              <Item>
-                {textField(t('APISUITE'), 'apiSuite', 'text', setValues, values.apiSuite, handleBlur, values, errors?.apiSuite, errors.apiSuite)}
-              </Item>
-            </Box>
+              {setTitle(t('ADDITIONAL_INFO'))}
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {textField(t('HOMEADDRESS'), 'homeAddress', 'text', setValues, values.homeAddress, handleBlur, values, errors?.homeAddress, errors.homeAddress)}
+                </Grid>
+                <Grid item xs={6}>
+                  {textField(t('APISUITE'), 'apiSuite', 'text', setValues, values.apiSuite, handleBlur, values, errors?.apiSuite, errors.apiSuite)}
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={rowStyle}
-            >
-              <Item>
-                {textField(t('VOLUNTEER'), 'volunteer', 'text', setValues, values.volunteer, handleBlur, values, errors?.volunteer, errors.volunteer)}
-              </Item>
-              <Item>
-                {textField(t('HEARABOUT'), 'hearAboutUs', 'text', setValues, values.hearAboutUs, handleBlur, values, errors?.hearAboutUs, errors.hearAboutUs)}
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  {textField(t('VOLUNTEER'), 'volunteer', 'text', setValues, values.volunteer, handleBlur, values, errors?.volunteer, errors.volunteer)}
+                </Grid>
+                <Grid item xs={6}>
+                  {textField(t('HEARABOUT'), 'hearAboutUs', 'text', setValues, values.hearAboutUs, handleBlur, values, errors?.hearAboutUs, errors.hearAboutUs)}
+
+                </Grid>
+              </Grid>
 
             <Grid container spacing={2} justifyContent="end">
               <Grid item>
@@ -304,6 +279,7 @@ export default function ParentInfo() {
                 <h5>{showMessage}</h5>
               </Box>
             )}
+            </Box>
           </form>
         )}
       </Formik>
