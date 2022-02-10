@@ -10,6 +10,7 @@ import TextFieldAtom from '../../../components/atoms/textfield';
 import SelectAtom from '../../../components/atoms/selectbox';
 import { Buttons } from '../../../constant';
 import useStyles from '../../../custom-hooks/useStyles';
+import DatePickerAtom from '../../../components/atoms/datepicker';
 import styles from './style';
 
 export default function StudentInfo() {
@@ -176,7 +177,27 @@ export default function StudentInfo() {
                 </Grid>
 
                 <Grid container spacing={2}>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
+                    <DatePickerAtom
+                      wrapperClassName={classes.datePicker}
+                      label={t('DOB')}
+                      minWidth="100%"
+                      id="dateOfBirth"
+                      name="dateOfBirth"
+                      type="text"
+                      value={values.dateOfBirth}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          dateOfBirth: event,
+                        });
+                      }}
+                      error={errors?.dateOfBirth}
+                      errorText={errors.dateOfBirth}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
                     <SelectAtom
                       minWidth="100%"
                       label={t('GENDER')}
@@ -195,7 +216,7 @@ export default function StudentInfo() {
                       errorText={errors.gender}
                     />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <SelectAtom
                       minWidth="100%"
                       label={t('TSHIRT')}
