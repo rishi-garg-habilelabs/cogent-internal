@@ -55,6 +55,8 @@ const en = {
   TSHIRT: 'T-Shirt Size',
   SEARCH_SCHOOL: 'Search And Choose Academic School',
   SORTED_NEAREST: 'Sorted as nearest first',
+  CLASSLEVEL: 'Class Level',
+  ACADEMICYEAR: 'Academic Year',
 };
 
 export default en;

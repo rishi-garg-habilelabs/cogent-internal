@@ -72,198 +72,230 @@ export default function StudentInfo() {
             noValidate
             autoComplete="off"
           >
+            <Box sx={{ flexGrow: 1, padding: '3%', display: 'flex' }}>
+              <Box sx={{ display: 'flex' }}>
+                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                  <Grid item xs={12} />
+                  <Grid item xs={12}>
+                    <SelectAtom
+                      minWidth="100%"
+                      label={t('ACADEMICYEAR')}
+                      id="academicYear"
+                      name="academicYear"
+                      type="text"
+                      value={values.academicYear}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          academicYear: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.academicYear}
+                      errorText={errors.academicYear}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <SelectAtom
+                      minWidth="100%"
+                      label={t('CLASSLEVEL')}
+                      id="classLevel"
+                      name="classLevel"
+                      type="text"
+                      value={values.classLevel}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          classLevel: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.classLevel}
+                      errorText={errors.classLevel}
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
 
-            <Box sx={{ flexGrow: 1, padding: '3%' }}>
-              <Grid container spacing={2}>
-                <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('TITLE')}
-                    id="title"
-                    name="title"
-                    type="text"
-                    value={values.title}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        title: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.title}
-                    errorText={errors.title}
-                  />
-                </Grid>
-                <Grid item xs={3}>
+              <Box sx={{ flexGrow: 1, padding: '3%' }}>
 
-                  <TextFieldAtom
-                    id="firstname"
-                    name="firstname"
-                    type="text"
-                    value={values.firstname}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        firstname: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.firstname}
-                    errorText={errors.firstname}
-                    label={t('FIRSTNAME')}
-                  />
-                </Grid>
-                <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('MIDDLENAME')}
-                    id="middlename"
-                    name="middlename"
-                    type="text"
-                    value={values.middlename}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        middlename: event.target.value.trim(),
-                      });
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('LASTNAME')}
-                    id="lastname"
-                    name="lastname"
-                    type="text"
-                    value={values.lastname}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        lastname: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.lastname}
-                    errorText={errors.lastname}
-                  />
-                </Grid>
-              </Grid>
+                <Grid container spacing={2}>
+                  <Grid item xs={4}>
 
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  <SelectAtom
-                    minWidth="100%"
-                    label={t('GENDER')}
-                    id="email"
-                    name="gender"
-                    type="text"
-                    value={values.gender}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        gender: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.gender}
-                    errorText={errors.gender}
-                  />
+                    <TextFieldAtom
+                      id="firstname"
+                      name="firstname"
+                      type="text"
+                      value={values.firstname}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          firstname: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.firstname}
+                      errorText={errors.firstname}
+                      label={t('FIRSTNAME')}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextFieldAtom
+                      label={t('MIDDLENAME')}
+                      id="middlename"
+                      name="middlename"
+                      type="text"
+                      value={values.middlename}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          middlename: event.target.value.trim(),
+                        });
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextFieldAtom
+                      label={t('LASTNAME')}
+                      id="lastname"
+                      name="lastname"
+                      type="text"
+                      value={values.lastname}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          lastname: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.lastname}
+                      errorText={errors.lastname}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                  <SelectAtom
-                    minWidth="100%"
-                    label={t('TSHIRT')}
-                    id="tShirt"
-                    name="tShirt"
-                    type="text"
-                    value={values.tShirt}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        tShirt: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.tShirt}
-                    errorText={errors?.tShirt}
-                  />
-                </Grid>
-              </Grid>
 
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  <SelectAtom
-                    minWidth="100%"
-                    label={t('GRADE')}
-                    id="grade"
-                    name="grade"
-                    type="text"
-                    value={values.grade}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        grade: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.grade}
-                    errorText={errors.grade}
-                  />
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <SelectAtom
+                      minWidth="100%"
+                      label={t('GENDER')}
+                      id="email"
+                      name="gender"
+                      type="text"
+                      value={values.gender}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          gender: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.gender}
+                      errorText={errors.gender}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <SelectAtom
+                      minWidth="100%"
+                      label={t('TSHIRT')}
+                      id="tShirt"
+                      name="tShirt"
+                      type="text"
+                      value={values.tShirt}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          tShirt: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.tShirt}
+                      errorText={errors?.tShirt}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('SEARCH_SCHOOL')}
-                    id="searchSchool"
-                    name="searchSchool"
-                    type="text"
-                    value={values.searchSchool}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        searchSchool: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.searchSchool}
-                    errorText={errors?.searchSchool}
-                  />
-                </Grid>
-              </Grid>
 
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <SelectAtom
-                    minWidth="100%"
-                    label={t('SORTED_NEAREST')}
-                    id="sortedNearest"
-                    name="sortedNearest"
-                    type="text"
-                    value={values.sortedNearest}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        sortedNearest: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.sortedNearest}
-                    errorText={errors.sortedNearest}
-                  />
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <SelectAtom
+                      minWidth="100%"
+                      label={t('GRADE')}
+                      id="grade"
+                      name="grade"
+                      type="text"
+                      value={values.grade}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          grade: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.grade}
+                      errorText={errors.grade}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <TextFieldAtom
+                      label={t('SEARCH_SCHOOL')}
+                      id="searchSchool"
+                      name="searchSchool"
+                      type="text"
+                      value={values.searchSchool}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          searchSchool: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.searchSchool}
+                      errorText={errors?.searchSchool}
+                    />
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Box>
-            <Grid container spacing={2} justifyContent="flex-end">
-              <Grid>
-                <ButtonAtom
-                  btntype={Buttons.PRIMARY}
-                  className={classes.activeButton}
+
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <SelectAtom
+                      minWidth="100%"
+                      label={t('SORTED_NEAREST')}
+                      id="sortedNearest"
+                      name="sortedNearest"
+                      type="text"
+                      value={values.sortedNearest}
+                      onBlur={handleBlur}
+                      onChange={(event) => {
+                        setValues({
+                          ...values,
+                          sortedNearest: event.target.value.trim(),
+                        });
+                      }}
+                      error={errors?.sortedNearest}
+                      errorText={errors.sortedNearest}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                  <Grid item>Map</Grid>
+
+                </Grid>
+                <Grid container spacing={2} justifyContent="flex-end">
+                  <Grid item>
+                    <ButtonAtom
+                      btntype={Buttons.PRIMARY}
+                      className={classes.activeButton}
                 // disabled={isSubmitting || !isValid || !dirty}
-                  onClick={handleSubmit}
-                  name={t('SAVE_CONTINUE')}
-                />
-              </Grid>
-            </Grid>
+                      onClick={handleSubmit}
+                      name={t('SAVE_CONTINUE')}
+                    />
+                  </Grid>
+                </Grid>
 
-            {showLoader && (
+              </Box>
+
+              {showLoader && (
               <Box
                 style={{
                   width: '100%',
@@ -282,7 +314,8 @@ export default function StudentInfo() {
                 <CircularProgress color="inherit" />
                 <h5>{showMessage}</h5>
               </Box>
-            )}
+              )}
+            </Box>
           </form>
         )}
       </Formik>
