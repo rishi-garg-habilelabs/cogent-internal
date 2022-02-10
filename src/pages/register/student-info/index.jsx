@@ -55,7 +55,6 @@ export default function StudentInfo() {
         enableReinitialize
         initialValues={inputFields}
         onSubmit={(values, { setSubmitting }) => {
-          console.log('valuesvalues', values);
           saveData(values, setSubmitting);
         }}
         validationSchema={validationSchema}
