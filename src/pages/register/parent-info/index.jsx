@@ -1,5 +1,8 @@
+/* eslint-disable no-multi-spaces */
 import React, { useState } from 'react';
-import { Paper, Box, CircularProgress } from '@mui/material';
+import {
+  Paper, Box, CircularProgress, Grid, Typography,
+} from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
@@ -8,24 +11,6 @@ import { Buttons } from '../../../constant';
 import useStyles from '../../../custom-hooks/useStyles';
 import ButtonAtom from '../../../components/atoms/button';
 import styles from './style';
-
-function Item(props) {
-  const { sx, ...other } = props;
-  return (
-    <Box
-      sx={{
-        p: 1,
-        m: 1,
-        flexGrow: 1,
-        fontSize: '0.875rem',
-        fontWeight: '700',
-        ...sx,
-      }}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...other}
-    />
-  );
-}
 
 export default function ParentInfo() {
   const { t } = useTranslation();
@@ -90,6 +75,15 @@ export default function ParentInfo() {
   const [showMessage, setShowMessage] = useState('');
 
   const classes = useStyles(styles)();
+  const setTitle = (title) => (
+    <Grid container className={classes.heading}>
+      <Grid item xs={12}>
+        <Typography component="div" gutterBottom>
+          {title}
+        </Typography>
+      </Grid>
+    </Grid>
+  );
 
   async function saveData(values, setSubmitting) {
     console.log('values', values);
@@ -122,531 +116,404 @@ export default function ParentInfo() {
             noValidate
             autoComplete="off"
           >
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 4,
-                fontWeight: 600,
-                bgcolor: 'lightblue',
-                borderRadius: 1,
-              }}
-            >
-              {t('PARENT_ONE')}
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('TITLE')}
-                  id="parentOneTitle"
-                  name="parentOneTitle"
-                  type="text"
-                  value={values.parentOneTitle}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneTitle: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneTitle}
-                  errorText={errors.parentOneTitle}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  id="parentOneFirstName"
-                  name="parentOneFirstName"
-                  type="text"
-                  value={values.parentOneFirstName}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneFirstName: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneFirstName}
-                  errorText={errors.parentOneFirstName}
-                  label={t('FIRSTNAME')}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('MIDDLENAME')}
-                  id="middlename"
-                  name="middlename"
-                  type="text"
-                  value={values.middlename}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      middlename: event.target.value.trim(),
-                    });
-                  }}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('LASTNAME')}
-                  id="parentOneLastName"
-                  name="parentOneLastName"
-                  type="text"
-                  value={values.parentOneLastName}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneLastName: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneLastName}
-                  errorText={errors.parentOneLastName}
-                />
-              </Item>
-            </Box>
+            <Box sx={{ flexGrow: 1, padding: '3%' }}>
+              {setTitle(t('PARENT_ONE'))}
+              <Grid container spacing={2}>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    label={t('TITLE')}
+                    id="parentOneTitle"
+                    name="parentOneTitle"
+                    type="text"
+                    value={values.parentOneTitle}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneTitle: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneTitle}
+                    errorText={errors.parentOneTitle}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    id="parentOneFirstName"
+                    name="parentOneFirstName"
+                    type="text"
+                    value={values.parentOneFirstName}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneFirstName: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneFirstName}
+                    errorText={errors.parentOneFirstName}
+                    label={t('FIRSTNAME')}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    label={t('MIDDLENAME')}
+                    id="middlename"
+                    name="middlename"
+                    type="text"
+                    value={values.middlename}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        middlename: event.target.value.trim(),
+                      });
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    label={t('LASTNAME')}
+                    id="parentOneLastName"
+                    name="parentOneLastName"
+                    type="text"
+                    value={values.parentOneLastName}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneLastName: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneLastName}
+                    errorText={errors.parentOneLastName}
+                  />
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('EMAIL')}
-                  id="parentOneEmail"
-                  name="parentOneEmail"
-                  type="text"
-                  value={values.parentOneEmail}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneEmail: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneEmail}
-                  errorText={errors.parentOneEmail}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('CONTACTNO')}
-                  id="parentOneContact"
-                  name="parentOneContact"
-                  type="text"
-                  value={values.parentOneContact}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneContact: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneContact}
-                  errorText={errors?.parentOneContact}
-                />
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('EMAIL')}
+                    id="parentOneEmail"
+                    name="parentOneEmail"
+                    type="text"
+                    value={values.parentOneEmail}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneEmail: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneEmail}
+                    errorText={errors.parentOneEmail}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('CONTACTNO')}
+                    id="parentOneContact"
+                    name="parentOneContact"
+                    type="text"
+                    value={values.parentOneContact}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneContact: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneContact}
+                    errorText={errors?.parentOneContact}
+                  />
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('PROFESSION')}
-                  id="parentOneProfession"
-                  name="parentOneProfession"
-                  type="text"
-                  value={values.parentOneProfession}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneProfession: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneProfession}
-                  errorText={errors?.parentOneProfession}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('NAMEOFCOMPANY')}
-                  id="parentOneCompany"
-                  name="parentOneCompany"
-                  type="text"
-                  value={values.parentOneCompany}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentOneCompany: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentOneCompany}
-                  errorText={errors?.parentOneCompany}
-                />
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('PROFESSION')}
+                    id="parentOneProfession"
+                    name="parentOneProfession"
+                    type="text"
+                    value={values.parentOneProfession}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneProfession: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneProfession}
+                    errorText={errors?.parentOneProfession}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('NAMEOFCOMPANY')}
+                    id="parentOneCompany"
+                    name="parentOneCompany"
+                    type="text"
+                    value={values.parentOneCompany}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentOneCompany: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentOneCompany}
+                    errorText={errors?.parentOneCompany}
+                  />
+                </Grid>
+              </Grid>
 
-            {/* Parent 2 */}
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 4,
-                fontWeight: 600,
-                bgcolor: 'lightblue',
-                borderRadius: 1,
-              }}
-            >
-              {t('PARENT_TWO')}
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('TITLE')}
-                  id="parentTwoTitle"
-                  name="parentTwoTitle"
-                  type="text"
-                  value={values.parentTwoTitle}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoTitle: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoTitle}
-                  errorText={errors.parentTwoTitle}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  id="parentTwoFirstName"
-                  name="parentTwoFirstName"
-                  type="text"
-                  value={values.parentTwoFirstName}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoFirstName: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoFirstName}
-                  errorText={errors.parentTwoFirstName}
-                  label={t('FIRSTNAME')}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('MIDDLENAME')}
-                  id="parentTwoMiddleName"
-                  name="parentTwoMiddleName"
-                  type="text"
-                  value={values.parentTwoMiddleName}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoMiddleName: event.target.value.trim(),
-                    });
-                  }}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('LASTNAME')}
-                  id="parentTwoLastName"
-                  name="parentTwoLastName"
-                  type="text"
-                  value={values.parentTwoLastName}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoLastName: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoLastName}
-                  errorText={errors.parentTwoLastName}
-                />
-              </Item>
-            </Box>
+              {/* Parent 2 */}
+              {setTitle(t('PARENT_TWO'))}
+              <Grid container spacing={2}>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    label={t('TITLE')}
+                    id="parentTwoTitle"
+                    name="parentTwoTitle"
+                    type="text"
+                    value={values.parentTwoTitle}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoTitle: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoTitle}
+                    errorText={errors.parentTwoTitle}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    id="parentTwoFirstName"
+                    name="parentTwoFirstName"
+                    type="text"
+                    value={values.parentTwoFirstName}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoFirstName: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoFirstName}
+                    errorText={errors.parentTwoFirstName}
+                    label={t('FIRSTNAME')}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    label={t('MIDDLENAME')}
+                    id="parentTwoMiddleName"
+                    name="parentTwoMiddleName"
+                    type="text"
+                    value={values.parentTwoMiddleName}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoMiddleName: event.target.value.trim(),
+                      });
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <TextFieldAtom
+                    label={t('LASTNAME')}
+                    id="parentTwoLastName"
+                    name="parentTwoLastName"
+                    type="text"
+                    value={values.parentTwoLastName}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoLastName: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoLastName}
+                    errorText={errors.parentTwoLastName}
+                  />
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('EMAIL')}
-                  id="parentTwoEmail"
-                  name="parentTwoEmail"
-                  type="text"
-                  value={values.parentTwoEmail}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoEmail: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoEmail}
-                  errorText={errors.parentTwoEmail}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('CONTACTNO')}
-                  id="parentTwoContact"
-                  name="parentTwoContact"
-                  type="text"
-                  value={values.parentTwoContact}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoContact: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoContact}
-                  errorText={errors?.parentTwoContact}
-                />
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('EMAIL')}
+                    id="parentTwoEmail"
+                    name="parentTwoEmail"
+                    type="text"
+                    value={values.parentTwoEmail}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoEmail: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoEmail}
+                    errorText={errors.parentTwoEmail}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('CONTACTNO')}
+                    id="parentTwoContact"
+                    name="parentTwoContact"
+                    type="text"
+                    value={values.parentTwoContact}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoContact: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoContact}
+                    errorText={errors?.parentTwoContact}
+                  />
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('PROFESSION')}
-                  id="parentTwoProfession"
-                  name="parentTwoProfession"
-                  type="text"
-                  value={values.parentTwoProfession}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoProfession: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoProfession}
-                  errorText={errors?.parentTwoProfession}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('NAMEOFCOMPANY')}
-                  id="parentTwoCompany"
-                  name="parentTwoCompany"
-                  type="text"
-                  value={values.parentTwoCompany}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      parentTwoCompany: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.parentTwoCompany}
-                  errorText={errors?.parentTwoCompany}
-                />
-              </Item>
-            </Box>
-            {/*
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('PROFESSION')}
+                    id="parentTwoProfession"
+                    name="parentTwoProfession"
+                    type="text"
+                    value={values.parentTwoProfession}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoProfession: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoProfession}
+                    errorText={errors?.parentTwoProfession}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('NAMEOFCOMPANY')}
+                    id="parentTwoCompany"
+                    name="parentTwoCompany"
+                    type="text"
+                    value={values.parentTwoCompany}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        parentTwoCompany: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.parentTwoCompany}
+                    errorText={errors?.parentTwoCompany}
+                  />
+                </Grid>
+              </Grid>
+              {/*
           Additional Info */}
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 4,
-                fontWeight: 600,
-                bgcolor: 'lightblue',
-                borderRadius: 1,
-              }}
-            >
-              {t('ADDITIONAL_INFO')}
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('HOMEADDRESS')}
-                  id="homeAddress"
-                  name="homeAddress"
-                  type="text"
-                  value={values.homeAddress}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      homeAddress: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.homeAddress}
-                  errorText={errors.homeAddress}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  id="apiSuite"
-                  name="apiSuite"
-                  type="apiSuite"
-                  value={values.apiSuite}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      apiSuite: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.apiSuite}
-                  errorText={errors.apiSuite}
-                  label={t('APISUITE')}
-                />
-              </Item>
-            </Box>
+              {setTitle(t('ADDITIONAL_INFO'))}
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('HOMEADDRESS')}
+                    id="homeAddress"
+                    name="homeAddress"
+                    type="text"
+                    value={values.homeAddress}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        homeAddress: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.homeAddress}
+                    errorText={errors.homeAddress}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    id="apiSuite"
+                    name="apiSuite"
+                    type="apiSuite"
+                    value={values.apiSuite}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        apiSuite: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.apiSuite}
+                    errorText={errors.apiSuite}
+                    label={t('APISUITE')}
+                  />
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-start',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <Item>
-                <TextFieldAtom
-                  label={t('VOLUNTEER')}
-                  id="volunteer"
-                  name="volunteer"
-                  type="text"
-                  value={values.volunteer}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      volunteer: event.target.value.trim(),
-                    });
-                  }}
-                />
-              </Item>
-              <Item>
-                <TextFieldAtom
-                  label={t('HEARABOUT')}
-                  id="hearAboutUs"
-                  name="hearAboutUs"
-                  type="text"
-                  value={values.hearAboutUs}
-                  onBlur={handleBlur}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      hearAboutUs: event.target.value.trim(),
-                    });
-                  }}
-                  error={errors?.hearAboutUs}
-                  errorText={errors.hearAboutUs}
-                />
-              </Item>
-            </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('VOLUNTEER')}
+                    id="volunteer"
+                    name="volunteer"
+                    type="text"
+                    value={values.volunteer}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        volunteer: event.target.value.trim(),
+                      });
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextFieldAtom
+                    label={t('HEARABOUT')}
+                    id="hearAboutUs"
+                    name="hearAboutUs"
+                    type="text"
+                    value={values.hearAboutUs}
+                    onBlur={handleBlur}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        hearAboutUs: event.target.value.trim(),
+                      });
+                    }}
+                    error={errors?.hearAboutUs}
+                    errorText={errors.hearAboutUs}
+                  />
+                </Grid>
+              </Grid>
 
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'flex-end',
-                justifyContent: 'end',
-                p: 2,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              <ButtonAtom
-                btntype={Buttons.PRIMARY}
-                className={classes.activeButton}
+              <Grid container spacing={2} justifyContent="end">
+                <Grid item>
+                  <ButtonAtom
+                    btntype={Buttons.PRIMARY}
+                    className={classes.activeButton}
                 // disabled={isSubmitting || !isValid || !dirty}
-                onClick={handleSubmit}
-                name={t('SAVE_CONTINUE')}
-              />
-            </Box>
+                    onClick={handleSubmit}
+                    name={t('SAVE_CONTINUE')}
+                  />
+                </Grid>
+              </Grid>
 
-            {showLoader && (
+              {showLoader && (
               <Box
                 style={{
                   width: '100%',
@@ -665,7 +532,8 @@ export default function ParentInfo() {
                 <CircularProgress color="inherit" />
                 <h5>{showMessage}</h5>
               </Box>
-            )}
+              )}
+            </Box>
           </form>
         )}
       </Formik>

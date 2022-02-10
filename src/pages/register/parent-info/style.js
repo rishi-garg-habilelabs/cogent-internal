@@ -1,13 +1,21 @@
-import makeStyles from '@mui/styles/makeStyles';
+import { colors, fonts } from '../../../theme';
 
-import {colors, fonts} from '../../../theme'
-const parentinfostyle = makeStyles(() => ({
-  inputError:{
-    color:'red'
+const parentinfostyle = () => ({
+  heading: {
+    '& .MuiTypography-root': {
+      color: colors.black,
+      fontWeight: fonts.fontWeight.bold,
+      background: 'skyblue',
+      padding: 5,
+      fontSize: 20,
+      marginLeft: '1%',
+      marginTop: 5,
+      borderRadius: 5,
+    },
   },
   root: {
     marginTop: 20,
-    width:'100% important'
+    width: '100% important',
   },
   title: {
     textAlign: 'center',
@@ -20,6 +28,7 @@ const parentinfostyle = makeStyles(() => ({
     justifyContent: 'flex-end',
     marginTop: 20,
   },
-}));
+
+});
 
 export default parentinfostyle;
