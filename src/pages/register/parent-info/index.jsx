@@ -10,7 +10,7 @@ import TextFieldAtom from '../../../components/atoms/textfield';
 import { Buttons } from '../../../constant';
 import useStyles from '../../../custom-hooks/useStyles';
 import ButtonAtom from '../../../components/atoms/button';
-import styles from './style';
+import styles, { loaderStyle } from  './style';
 
 export default function ParentInfo() {
   const { t } = useTranslation();
@@ -253,19 +253,7 @@ export default function ParentInfo() {
 
               {showLoader && (
               <Box
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  height: '100vh',
-                  top: '0',
-                  left: '0',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                  position: 'fixed',
-                  background: 'rgba(0,0,0,0.3)',
-                  zIndex: '9',
-                }}
+                style={loaderStyle}
               >
                 <CircularProgress color="inherit" />
                 <h5>{showMessage}</h5>
