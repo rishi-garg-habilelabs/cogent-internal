@@ -139,21 +139,18 @@ export default function StudentInfo() {
             noValidate
             autoComplete="off"
           >
-            <Box sx={{ flexGrow: 1, padding: '3%', display: 'flex' }}>
-              <Box sx={{ display: 'flex' }}>
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                  <Grid item xs={12} />
-                  <Grid item xs={12}>
-                    {selectBox(t('ACADEMICYEAR'), 'academicYear', 'text', setValues, values.academicYear, handleBlur, values, errors?.academicYear, errors.academicYear)}
-                  </Grid>
-                  <Grid item xs={12}>
-                    {selectBox(t('CLASSLEVEL'), 'classLevel', 'text', setValues, values.classLevel, handleBlur, values, errors?.classLevel, errors.classLevel)}
-                  </Grid>
+            <Grid container spacing={2} display="flex" flexDirection="row">
+              <Grid item xs={4} className={classes.gridContainer}>
+
+                <Grid item xs={12}>
+                  {selectBox(t('ACADEMICYEAR'), 'academicYear', 'text', setValues, values.academicYear, handleBlur, values, errors?.academicYear, errors.academicYear)}
                 </Grid>
-              </Box>
+                <Grid item xs={12}>
+                  {selectBox(t('CLASSLEVEL'), 'classLevel', 'text', setValues, values.classLevel, handleBlur, values, errors?.classLevel, errors.classLevel)}
+                </Grid>
 
-              <Box sx={{ flexGrow: 1, padding: '3%' }}>
-
+              </Grid>
+              <Grid item xs={8} className={classes.gridContainer}>
                 <Grid container spacing={2}>
                   <Grid item xs={4}>
                     {textField(t('FIRSTNAME'), 'firstName', 'text', setValues, values.firstName, handleBlur, values, errors?.firstName, errors.firstName)}
@@ -164,9 +161,6 @@ export default function StudentInfo() {
                   <Grid item xs={4}>
                     {textField(t('LASTNAME'), 'lastName', 'text', setValues, values.lastName, handleBlur, values, errors?.lastName, errors.lastName)}
                   </Grid>
-                </Grid>
-
-                <Grid container spacing={2}>
                   <Grid item xs={4}>
                     <DatePickerAtom
                       wrapperClassName={classes.datePicker}
@@ -225,8 +219,7 @@ export default function StudentInfo() {
                     />
                   </Grid>
                 </Grid>
-
-              </Box>
+              </Grid>
 
               {showLoader && (
               <Box
@@ -236,7 +229,7 @@ export default function StudentInfo() {
                 <h5>{showMessage}</h5>
               </Box>
               )}
-            </Box>
+            </Grid>
           </form>
         )}
       </Formik>

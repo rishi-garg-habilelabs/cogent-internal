@@ -1,3 +1,5 @@
+import { colors } from '../../../theme';
+
 const selectBoxStyle = () => ({
   formControl: {
     padding: 9,
@@ -44,6 +46,10 @@ const selectBoxStyle = () => ({
   paper: {
     background: 'black',
     color: 'red',
+  },
+  errorText: {
+    color: colors.red,
+    fontSize: 12,
   },
 });
 

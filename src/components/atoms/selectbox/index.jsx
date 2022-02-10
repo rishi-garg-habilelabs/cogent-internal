@@ -3,16 +3,17 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useTranslation } from 'react-i18next';
 import useStyles from '../../../custom-hooks/useStyles';
 import styles from './style';
 
 export default function SelectAutoWidth(props) {
   const {
-    optionList, handleSelect, value, label, minWidth, error,
+    optionList, handleSelect, value, label, minWidth, error, errorText,
   } = props;
 
   const classes = useStyles(styles)();
-
+  const { t } = useTranslation();
   return (
     <div className={classes.formControl}>
       <FormControl required sx={{ minWidth }} error={error}>
@@ -35,8 +36,11 @@ export default function SelectAutoWidth(props) {
             </>
           )}
         </Select>
-      </FormControl>
+        <span className={classes.errorText}>
+          {t(errorText)}
 
+        </span>
+      </FormControl>
     </div>
   );
 }
