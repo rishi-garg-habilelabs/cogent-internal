@@ -39,7 +39,7 @@ const en = {
   PROFESSION_REQUIRED: 'Profession Required',
   NAMEOFCOMPANY_REQUIRED: 'Name of company Required',
   HOMEADDRESS_REQUIRED: 'Home Address Required',
-  VOLUNTEER_REQUIRED: 'Home Address Required',
+  VOLUNTEER_REQUIRED: 'Volunteer Required',
   HEARABOUT_REQUIRED: 'Hear About Required',
   PARENT_ONE: 'Parent 1',
   PARENT_TWO: 'Parent 2',

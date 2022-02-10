@@ -73,6 +73,34 @@ export default function ParentInfo() {
   const [inputFields, setInputFields] = useState({});
   const [showLoader, setShowLoader] = useState(false);
   const [showMessage, setShowMessage] = useState('');
+  const textField = (
+    label,
+    id,
+    type,
+    setValues,
+    value,
+    handleBlur,
+    values,
+    error,
+    errorText,
+  ) => (
+    <TextFieldAtom
+      label={label}
+      id={id}
+      name={id}
+      type={type}
+      value={value}
+      onBlur={handleBlur}
+      onChange={(event) => {
+        setValues({
+          ...values,
+          parentOneTitle: event.target.value.trim(),
+        });
+      }}
+      error={error}
+      errorText={errorText}
+    />
+  );
 
   const classes = useStyles(styles)();
   const setTitle = (title) => (
@@ -120,152 +148,34 @@ export default function ParentInfo() {
               {setTitle(t('PARENT_ONE'))}
               <Grid container spacing={2}>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('TITLE')}
-                    id="parentOneTitle"
-                    name="parentOneTitle"
-                    type="text"
-                    value={values.parentOneTitle}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneTitle: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneTitle}
-                    errorText={errors.parentOneTitle}
-                  />
+                  {textField(t('TITLE'), 'parentOneTitle', 'text', setValues, values.parentOneTitle, handleBlur, values, errors?.parentOneTitle, errors.parentOneTitle)}
                 </Grid>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    id="parentOneFirstName"
-                    name="parentOneFirstName"
-                    type="text"
-                    value={values.parentOneFirstName}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneFirstName: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneFirstName}
-                    errorText={errors.parentOneFirstName}
-                    label={t('FIRSTNAME')}
-                  />
+                  {textField(t('FIRSTNAME'), 'parentOneFirstName', 'text', setValues, values.parentOneFirstName, handleBlur, values, errors?.parentOneFirstName, errors.parentOneFirstName)}
                 </Grid>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('MIDDLENAME')}
-                    id="middlename"
-                    name="middlename"
-                    type="text"
-                    value={values.middlename}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        middlename: event.target.value.trim(),
-                      });
-                    }}
-                  />
+                  {textField(t('MIDDLENAME'), 'middlename', 'text', setValues, values.middlename, handleBlur, values, '', '')}
                 </Grid>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('LASTNAME')}
-                    id="parentOneLastName"
-                    name="parentOneLastName"
-                    type="text"
-                    value={values.parentOneLastName}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneLastName: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneLastName}
-                    errorText={errors.parentOneLastName}
-                  />
+                  {textField(t('LASTNAME'), 'parentOneLastName', 'text', setValues, values.parentOneLastName, handleBlur, values, errors?.parentOneLastName, errors.parentOneLastName)}
                 </Grid>
               </Grid>
 
               <Grid container spacing={2}>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('EMAIL')}
-                    id="parentOneEmail"
-                    name="parentOneEmail"
-                    type="text"
-                    value={values.parentOneEmail}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneEmail: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneEmail}
-                    errorText={errors.parentOneEmail}
-                  />
+                  {textField(t('EMAIL'), 'parentOneEmail', 'text', setValues, values.parentOneEmail, handleBlur, values, errors?.parentOneEmail, errors.parentOneEmail)}
                 </Grid>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('CONTACTNO')}
-                    id="parentOneContact"
-                    name="parentOneContact"
-                    type="text"
-                    value={values.parentOneContact}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneContact: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneContact}
-                    errorText={errors?.parentOneContact}
-                  />
+                  {textField(t('CONTACTNO'), 'parentOneContact', 'text', setValues, values.parentOneContact, handleBlur, values, errors?.parentOneContact, errors.parentOneContact)}
                 </Grid>
               </Grid>
 
               <Grid container spacing={2}>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('PROFESSION')}
-                    id="parentOneProfession"
-                    name="parentOneProfession"
-                    type="text"
-                    value={values.parentOneProfession}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneProfession: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneProfession}
-                    errorText={errors?.parentOneProfession}
-                  />
+                  {textField(t('PROFESSION'), 'parentOneProfession', 'text', setValues, values.parentOneProfession, handleBlur, values, errors?.parentOneProfession, errors.parentOneProfession)}
                 </Grid>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('NAMEOFCOMPANY')}
-                    id="parentOneCompany"
-                    name="parentOneCompany"
-                    type="text"
-                    value={values.parentOneCompany}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentOneCompany: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentOneCompany}
-                    errorText={errors?.parentOneCompany}
-                  />
+                  {textField(t('NAMEOFCOMPANY'), 'parentOneCompany', 'text', setValues, values.parentOneCompany, handleBlur, values, errors?.parentOneCompany, errors.parentOneCompany)}
                 </Grid>
               </Grid>
 
@@ -273,152 +183,37 @@ export default function ParentInfo() {
               {setTitle(t('PARENT_TWO'))}
               <Grid container spacing={2}>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('TITLE')}
-                    id="parentTwoTitle"
-                    name="parentTwoTitle"
-                    type="text"
-                    value={values.parentTwoTitle}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoTitle: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoTitle}
-                    errorText={errors.parentTwoTitle}
-                  />
+                  {textField(t('TITLE'), 'parentTwoTitle', 'text', setValues, values.parentTwoTitle, handleBlur, values, errors?.parentTwoTitle, errors.parentTwoTitle)}
                 </Grid>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    id="parentTwoFirstName"
-                    name="parentTwoFirstName"
-                    type="text"
-                    value={values.parentTwoFirstName}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoFirstName: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoFirstName}
-                    errorText={errors.parentTwoFirstName}
-                    label={t('FIRSTNAME')}
-                  />
+
+                  {textField(t('FIRSTNAME'), 'parentTwoFirstName', 'text', setValues, values.parentTwoFirstName, handleBlur, values, errors?.parentTwoFirstName, errors.parentTwoFirstName)}
+
                 </Grid>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('MIDDLENAME')}
-                    id="parentTwoMiddleName"
-                    name="parentTwoMiddleName"
-                    type="text"
-                    value={values.parentTwoMiddleName}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoMiddleName: event.target.value.trim(),
-                      });
-                    }}
-                  />
+                  {textField(t('MIDDLENAME'), 'parentTwoMiddleName', 'text', setValues, values.parentTwoMiddleName, handleBlur, values, errors?.parentTwoMiddleName, errors.parentTwoMiddleName)}
                 </Grid>
                 <Grid item xs={3}>
-                  <TextFieldAtom
-                    label={t('LASTNAME')}
-                    id="parentTwoLastName"
-                    name="parentTwoLastName"
-                    type="text"
-                    value={values.parentTwoLastName}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoLastName: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoLastName}
-                    errorText={errors.parentTwoLastName}
-                  />
+                  {textField(t('LASTNAME'), 'parentTwoLastName', 'text', setValues, values.parentTwoLastName, handleBlur, values, errors?.parentTwoLastName, errors.parentTwoLastName)}
                 </Grid>
               </Grid>
 
               <Grid container spacing={2}>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('EMAIL')}
-                    id="parentTwoEmail"
-                    name="parentTwoEmail"
-                    type="text"
-                    value={values.parentTwoEmail}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoEmail: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoEmail}
-                    errorText={errors.parentTwoEmail}
-                  />
+                  {textField(t('EMAIL'), 'parentTwoEmail', 'text', setValues, values.parentTwoEmail, handleBlur, values, errors?.parentTwoEmail, errors.parentTwoEmail)}
                 </Grid>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('CONTACTNO')}
-                    id="parentTwoContact"
-                    name="parentTwoContact"
-                    type="text"
-                    value={values.parentTwoContact}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoContact: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoContact}
-                    errorText={errors?.parentTwoContact}
-                  />
+                  {textField(t('CONTACTNO'), 'parentTwoContact', 'text', setValues, values.parentTwoContact, handleBlur, values, errors?.parentTwoContact, errors.parentTwoContact)}
                 </Grid>
               </Grid>
 
               <Grid container spacing={2}>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('PROFESSION')}
-                    id="parentTwoProfession"
-                    name="parentTwoProfession"
-                    type="text"
-                    value={values.parentTwoProfession}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoProfession: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoProfession}
-                    errorText={errors?.parentTwoProfession}
-                  />
+                  {textField(t('PROFESSION'), 'parentTwoProfession', 'text', setValues, values.parentTwoProfession, handleBlur, values, errors?.parentTwoProfession, errors.parentTwoProfession)}
                 </Grid>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('NAMEOFCOMPANY')}
-                    id="parentTwoCompany"
-                    name="parentTwoCompany"
-                    type="text"
-                    value={values.parentTwoCompany}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        parentTwoCompany: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.parentTwoCompany}
-                    errorText={errors?.parentTwoCompany}
-                  />
+                  {textField(t('NAMEOFCOMPANY'), 'parentTwoCompany', 'text', setValues, values.parentTwoCompany, handleBlur, values, errors?.parentTwoCompany, errors.parentTwoCompany)}
+
                 </Grid>
               </Grid>
               {/*
@@ -427,77 +222,20 @@ export default function ParentInfo() {
               {setTitle(t('ADDITIONAL_INFO'))}
               <Grid container spacing={2}>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('HOMEADDRESS')}
-                    id="homeAddress"
-                    name="homeAddress"
-                    type="text"
-                    value={values.homeAddress}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        homeAddress: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.homeAddress}
-                    errorText={errors.homeAddress}
-                  />
+                  {textField(t('HOMEADDRESS'), 'homeAddress', 'text', setValues, values.homeAddress, handleBlur, values, errors?.homeAddress, errors.homeAddress)}
                 </Grid>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    id="apiSuite"
-                    name="apiSuite"
-                    type="apiSuite"
-                    value={values.apiSuite}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        apiSuite: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.apiSuite}
-                    errorText={errors.apiSuite}
-                    label={t('APISUITE')}
-                  />
+                  {textField(t('APISUITE'), 'apiSuite', 'text', setValues, values.apiSuite, handleBlur, values, errors?.apiSuite, errors.apiSuite)}
                 </Grid>
               </Grid>
 
               <Grid container spacing={2}>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('VOLUNTEER')}
-                    id="volunteer"
-                    name="volunteer"
-                    type="text"
-                    value={values.volunteer}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        volunteer: event.target.value.trim(),
-                      });
-                    }}
-                  />
+                  {textField(t('VOLUNTEER'), 'volunteer', 'text', setValues, values.volunteer, handleBlur, values, errors?.volunteer, errors.volunteer)}
                 </Grid>
                 <Grid item xs={6}>
-                  <TextFieldAtom
-                    label={t('HEARABOUT')}
-                    id="hearAboutUs"
-                    name="hearAboutUs"
-                    type="text"
-                    value={values.hearAboutUs}
-                    onBlur={handleBlur}
-                    onChange={(event) => {
-                      setValues({
-                        ...values,
-                        hearAboutUs: event.target.value.trim(),
-                      });
-                    }}
-                    error={errors?.hearAboutUs}
-                    errorText={errors.hearAboutUs}
-                  />
+                  {textField(t('HEARABOUT'), 'hearAboutUs', 'text', setValues, values.hearAboutUs, handleBlur, values, errors?.hearAboutUs, errors.hearAboutUs)}
+
                 </Grid>
               </Grid>
 
