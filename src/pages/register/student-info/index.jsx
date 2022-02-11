@@ -98,7 +98,7 @@ export default function StudentInfo() {
       name={id}
       type={type}
       value={value}
-      onBlur={handleBlur}
+      // onBlur={handleBlur}
       onChange={(event) => {
         setValues({
           ...values,
