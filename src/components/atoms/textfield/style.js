@@ -7,6 +7,11 @@ const style = (() => ({
     '@media (max-width: 767px)': {
       marginRight: 0,
     },
+    '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
+      fontFamily: `${fonts.fontType.roboto}!important`,
+      fontSize: '16px !important',
+      color: `${colors.black}!important`,
+    },
     '& .MuiOutlinedInput-root': {
       background: '#fff',
       '& input': {
