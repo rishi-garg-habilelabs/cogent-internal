@@ -211,6 +211,12 @@ export default function StudentInfo() {
                 <Grid container spacing={2} justifyContent="flex-end">
                   <Grid item>
                     <ButtonAtom
+                      btntype={Buttons.SECONDARY}
+                      className={classes.activeButton}
+                      onClick={handleSubmit}
+                      name={t('ADD_SIBLING')}
+                    />
+                    <ButtonAtom
                       btntype={Buttons.PRIMARY}
                       className={classes.activeButton}
                 // disabled={isSubmitting || !isValid || !dirty}

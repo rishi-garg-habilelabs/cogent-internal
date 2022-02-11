@@ -22,7 +22,7 @@ const buttonStyle = (theme) => ({
   },
   secButton: {
     '&.MuiButton-root': {
-      borderRadius: 0,
+      borderRadius: 4,
       textTransform: 'none',
       background: 'white',
       boxShadow:
@@ -31,10 +31,11 @@ const buttonStyle = (theme) => ({
       height: '45px',
       marginLeft: '15px',
       minWidth: '90px',
-      color: '#FF6D00 !important',
+      border: '2px solid #1976d2',
+      color: '#1976d2 !important',
       padding: 5,
       '&:hover': {
-        background: '#FF6D00',
+        background: '#1976d2',
         color: '#fff !important',
       },
     },

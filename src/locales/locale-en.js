@@ -49,6 +49,7 @@ const en = {
   VOLUNTEER: 'I Would like to volunteer for',
   HEARABOUT: 'How does you hear about us?',
   SAVE_CONTINUE: 'Save and continue',
+  ADD_SIBLING: 'Add Sibling',
   // student info
   GENDER: 'Gender',
   GRADE: 'Academic Grade',
