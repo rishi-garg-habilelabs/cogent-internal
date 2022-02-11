@@ -1,19 +1,21 @@
+import { colors } from '../../../theme';
+
 const buttonStyle = (theme) => ({
   icon: {
     marginTop: 5,
   },
   primaryButton: {
     '&.MuiButton-root': {
-      borderRadius: 0,
+      borderRadius: 8,
       textTransform: 'none !important',
       color: '#f3f8fe !important',
       boxShadow: '0 4px 4px -2px hsl(0deg 0% 65% / 25%)',
       boxSizing: 'border-box',
-      height: '45px',
+      height: 45,
       marginLeft: '15px',
-      minWidth: '90px',
+      minWidth: 200,
       padding: 8,
-      background: '#1976d2',
+      background: colors.primary,
       '&:hover': {
         color: '#1976d2 !important',
         background: 'hsl(240deg 8% 93%)',
@@ -25,20 +27,20 @@ const buttonStyle = (theme) => ({
   },
   secButton: {
     '&.MuiButton-root': {
-      borderRadius: 4,
+      borderRadius: 8,
       textTransform: 'none',
       background: 'white',
       boxShadow:
         '0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%) !important',
       boxSizing: 'border-box',
-      height: '45px',
+      height: 45,
       marginLeft: '15px',
-      minWidth: '90px',
+      minWidth: 200,
       border: '2px solid #1976d2',
       color: '#1976d2 !important',
       padding: 5,
       '&:hover': {
-        background: '#1976d2',
+        background: colors.primary,
         color: '#fff !important',
       },
     },
@@ -47,7 +49,7 @@ const buttonStyle = (theme) => ({
     '&.MuiButton-root': {
       textTransform: 'none',
       background: theme.palette.primary.main,
-      border: '1px solid #d300ff !important',
+      border: `1px solid ${colors.primary} !important`,
       borderRadius: 0,
       boxShadow:
         '0 2px 5px rgb(0 0 0 / 16%), 0 2px 10px rgb(0 0 0 / 12%) !important',
