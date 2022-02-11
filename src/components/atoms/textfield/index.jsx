@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import FormControl from '@mui/material/FormControl';
 import { useTranslation } from 'react-i18next';
 import style from './style';
+import useStyles from '../../../custom-hooks/useStyles';
 
 function TextFieldAtom({
   label, name, value, onChange, InputProps, multiline, rows, onBlur,
   customFormControlCss, type, required, variant, placeholder, error,
   errorText, disable, onKeyUp, title, minWidth,
 }) {
-  const classes = style();
+  const classes = useStyles(style)();
   const { t } = useTranslation();
   return (
     // eslint-disable-next-line max-len

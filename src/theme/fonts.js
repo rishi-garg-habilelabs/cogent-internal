@@ -10,6 +10,7 @@ const fontType = {
   montserratMedium: 'Montserrat-Medium',
   montserratRegular: 'Montserrat-Regular',
   montserratSemiBold: 'Montserrat-SemiBold',
+  roboto: 'Roboto',
   lato: 'Lato',
   latoSansSerif: 'Lato, sans-serif',
 };

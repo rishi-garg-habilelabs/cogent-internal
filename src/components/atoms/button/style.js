@@ -1,4 +1,4 @@
-import { colors } from '../../../theme';
+import { colors, fonts } from '../../../theme';
 
 const buttonStyle = (theme) => ({
   icon: {
@@ -14,6 +14,7 @@ const buttonStyle = (theme) => ({
       height: 45,
       marginLeft: '15px',
       minWidth: 200,
+      fontFamily: fonts.fontType.roboto,
       padding: 8,
       background: colors.primary,
       '&:hover': {
@@ -27,6 +28,7 @@ const buttonStyle = (theme) => ({
   },
   secButton: {
     '&.MuiButton-root': {
+      fontFamily: fonts.fontType.roboto,
       borderRadius: 8,
       textTransform: 'none',
       background: 'white',
