@@ -19,7 +19,7 @@ export default function ViewsDatePicker(props) {
           wrapperClassName={wrapperClassName}
           views={['day']}
           label={label}
-          value={value || new Date()}
+          value={value ? new Date(value) : new Date()}
           onChange={onChange}
         // eslint-disable-next-line react/jsx-props-no-spreading
           renderInput={(params) => <TextField {...params} helperText={null} />}

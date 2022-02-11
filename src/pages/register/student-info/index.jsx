@@ -72,7 +72,7 @@ export default function StudentInfo() {
       onChange={(event) => {
         setValues({
           ...values,
-          parentOneTitle: event.target.value.trim(),
+          [id]: event.target.value.trim(),
         });
       }}
       error={error}
@@ -102,7 +102,7 @@ export default function StudentInfo() {
       onChange={(event) => {
         setValues({
           ...values,
-          id: event.target.value.trim(),
+          [id]: event.target.value.trim(),
         });
       }}
       error={error}
@@ -170,7 +170,7 @@ export default function StudentInfo() {
                       name="dateOfBirth"
                       type="text"
                       value={values.dateOfBirth}
-                      onBlur={handleBlur}
+                      // onBlur={handleBlur}
                       onChange={(event) => {
                         setValues({
                           ...values,
