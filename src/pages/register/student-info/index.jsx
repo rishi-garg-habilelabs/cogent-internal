@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from 'react-i18next';
 import ButtonAtom from '../../../components/atoms/button';
 import TextFieldAtom from '../../../components/atoms/textfield';
@@ -215,6 +216,7 @@ export default function StudentInfo() {
                       className={classes.activeButton}
                       onClick={handleSubmit}
                       name={t('ADD_SIBLING')}
+                      icon={<AddIcon />}
                     />
                     <ButtonAtom
                       btntype={Buttons.PRIMARY}

@@ -26,7 +26,7 @@ export default function ButtonAtom(props) {
       disabled={disabled}
     >
       {name}
-      <span>{icon}</span>
+      <span className={classes.icon}>{icon}</span>
     </Button>
   );
 }

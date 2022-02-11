@@ -1,4 +1,7 @@
 const buttonStyle = (theme) => ({
+  icon: {
+    marginTop: 5,
+  },
   primaryButton: {
     '&.MuiButton-root': {
       borderRadius: 0,
