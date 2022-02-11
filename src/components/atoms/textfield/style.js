@@ -20,12 +20,6 @@ const style = (() => ({
         fontSize: '16px !important',
         color: `${colors.black}!important`,
         letterSpacing: 2,
-        '&::placeholder': {
-          textTransform: 'uppercase',
-          fontFamily: `${fonts.fontType.roboto}!important`,
-          fontSize: '16px !important',
-          color: `${colors.black}!important`,
-        },
       },
     },
     '& .MuiFormHelperText-contained': {
